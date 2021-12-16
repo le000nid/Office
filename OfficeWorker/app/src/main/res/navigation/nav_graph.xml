@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.officeworkerapp.ui.home.HomeFragment"
+        android:label="Главная"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_orderDetailedFragment"
+            app:destination="@id/orderDetailedFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/orderDetailedFragment"
+        android:name="com.example.officeworkerapp.ui.home.order.OrderDetailedFragment"
+        android:label="Улица"
+        tools:layout="@layout/fragment_order" >
+        <argument
+            android:name="orderItem"
+            app:argType="com.example.officeworkerapp.models.Order" />
+        <argument
+            android:name="orderShowFormat"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_orderDetailedFragment_to_activeOrderFragment"
+            app:destination="@id/activeOrderFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/activeOrderFragment"
+        android:name="com.example.officeworkerapp.ui.home.order.active.ActiveOrderFragment"
+        android:label="Улица"
+        tools:layout="@layout/fragment_active_order" >
+        <argument
+            android:name="orderItem"
+            app:argType="com.example.officeworkerapp.models.Order" />
+        <action
+            android:id="@+id/action_activeOrderFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.officeworkerapp.ui.chat.ChatFragment"
+        android:label="Чат"
+        tools:layout="@layout/fragment_chat" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.officeworkerapp.ui.profile.ProfileFragment"
+        android:label="Профиль"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
