@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#fbc02d</color>
+    <color name="primaryLightColor">#fff263</color>
+    <color name="primaryDarkColor">#c49000</color>
+    <color name="secondaryColor">#5c6bc0</color>
+    <color name="secondaryLightColor">#8e99f3</color>
+    <color name="secondaryDarkColor">#26418f</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
+    <color name="bgChat">#5BBDF3</color>
+    <color name="colorGrey">#DADADA</color>
+    <color name="colorGreen">#7CF180</color>
+    <color name="grayMiddle">#BCBCBB</color>
+    <color name="grayLight">#F0F0F0</color>
+    <color name="primaryBlack">#000000</color>
+
+
+    <color name="material_drawer_primary">#2196F3</color>
+    <color name="material_drawer_primary_dark">#1976D2</color>
+    <color name="material_drawer_primary_light">#BBDEFB</color>
+    <color name="material_drawer_accent">#FF4081</color>
+
+    <color name="colorPrimary">#0088CC</color>
+    <color name="colorPrimaryDark">#0052CC</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorAccentDark">#D1CDCD</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlueWish">#6BB0C5</color>
+    <color name="accent">#FF4081</color>
+
+    <color name="primaryWhite">#FFFFFF</color>
+
+    <color name="dateGreen">#A5D6A7</color>
+    <color name="dateRed">#EF9A9A</color>
+
+
+</resources>
