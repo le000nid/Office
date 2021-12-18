@@ -8,6 +8,7 @@ import com.example.officeemployee.R
 import com.example.officeemployee.databinding.FragmentProfileBinding
 import com.example.officeemployee.responses.User
 import com.example.officeemployee.util.logout
+import com.example.officeemployee.util.visible
 
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {

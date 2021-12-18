@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.officeemployee.R
 import com.example.officeemployee.databinding.FragmentWorkerInfoBinding
 import com.example.officeemployee.models.MarketOrderPost
+import com.example.officeemployee.util.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

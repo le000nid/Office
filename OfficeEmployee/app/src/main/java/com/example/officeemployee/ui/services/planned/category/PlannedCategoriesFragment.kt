@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.officeemployee.R
 import com.example.officeemployee.databinding.FragmentPlannedCategoriesBinding
 import com.example.officeemployee.models.CategoriesList
+import com.example.officeemployee.util.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.officeemployee.R
 import com.example.officeemployee.databinding.FragmentMarketCategoriesBinding
+import com.example.officeemployee.util.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

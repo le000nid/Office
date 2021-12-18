@@ -17,6 +17,7 @@ import com.example.officeemployee.ui.MainActivity
 import com.example.officeemployee.util.handleApiError
 import com.example.officeemployee.util.snackbar
 import com.example.officeemployee.util.startNewActivity
+import com.example.officeemployee.util.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
