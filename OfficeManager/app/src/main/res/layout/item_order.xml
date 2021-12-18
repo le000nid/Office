@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="order"
+            type="com.example.officemanagerapp.models.Order" />
+
+        <variable
+            name="orderClick"
+            type="com.example.officemanagerapp.ui.services.base.OrderClick" />
+
+        <variable
+            name="reviewClick"
+            type="com.example.officemanagerapp.ui.services.base.ReviewClick" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/cardWithBorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:onClick="@{() -> orderClick.onClick(order)}"
+        app:contentPaddingBottom="@dimen/spacing_big"
+        app:contentPaddingLeft="@dimen/spacing_normal"
+        app:contentPaddingRight="@dimen/spacing_normal"
+        app:contentPaddingTop="@dimen/spacing_big">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_order_date"
+                style="@style/TextAppearance.MaterialComponents.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_little"
+                android:text="@{order.shortDesc}"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_order_title"
+                tools:text="01.02.22  |  14:00 - 16:00" />
+
+            <TextView
+                android:id="@+id/tv_order_title"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{order.title}"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Название новости" />
+
+            <TextView
+                android:id="@+id/tv_is_finished"
+                style="@style/TextAppearance.MaterialComponents.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_little"
+                android:text="Завершен"
+                android:textColor="@color/secondaryColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_order_date"
+                app:visibleIfFinished="@{order.status}" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:background="@color/grayMiddle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_is_finished"
+                app:visibleIfFinished="@{order.status}" />
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_navigate_next"
+                app:tint="@color/grayMiddle" />
+
+            <Button
+                android:id="@+id/btn_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_little"
+                android:backgroundTint="@color/secondaryColor"
+                android:onClick="@{() -> reviewClick.onReviewClick(order)}"
+                android:text="Оставить отзыв"
+                android:textColor="@color/secondaryTextColor"
+                android:visibility="gone"
+                app:goneIfRateNot0="@{order.userRate}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2"
+                app:state="@{order.status}" />
+
+
+            <ImageView
+                android:id="@+id/orderRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                app:goneIfRate0="@{order.userRate}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2"
+                app:setRating="@{order.userRate}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

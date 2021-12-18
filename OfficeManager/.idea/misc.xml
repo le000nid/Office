@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/bg_recived_messag.xml" value="0.253125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/bg_user_message.xml" value="0.253125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_add.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_add_photo.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_broken.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_broken_image.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_card_main.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_chat.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_home.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_hourglass.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_navigate_next.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_payment.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_problem.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_profile.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_upload_image_.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_water_drop.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_worker.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/loading_img.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ripple_effect.xml" value="0.3671875" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/bg_recives_message.xml" value="0.23697916666666666" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_chat.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_home.xml" value="0.35104166666666664" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_messangin.xml" value="0.2957427536231884" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_news_detailed.xml" value="0.35104166666666664" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_planned.xml" value="0.2864583333333333" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_single_chat.xml" value="0.25" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_category_card.xml" value="0.35104166666666664" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_chat.xml" value="0.28940217391304346" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_message.xml" value="0.33" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_news.xml" value="0.15989583333333332" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_notification.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/toolbar_info.xml" value="0.25" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/drawable-v24/ic_broken_image.xml" value="0.2866666666666667" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/drawable-v24/ic_home.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/drawable/ic_baseline_account_box_24.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/drawable/ic_baseline_store_24.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/drawable/ic_broken_image.xml" value="0.2866666666666667" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/drawable/ic_home.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/drawable/ic_payment.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/drawable/loading_img.xml" value="0.2866666666666667" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/layout/fragment_chat.xml" value="0.4" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/layout/fragment_news_detailed.xml" value="0.24909420289855072" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/layout/fragment_payment.xml" value="0.13468013468013468" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/layout/fragment_profile.xml" value="0.275" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/layout/fragment_services.xml" value="0.275" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/layout/item_news.xml" value="0.4" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2609375" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_add.xml" value="0.2911458333333333" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_broken.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_broken_image.xml" value="0.26481481481481484" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_card_main.xml" value="0.2911458333333333" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_hourglass.xml" value="0.2911458333333333" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_problem.xml" value="0.2911458333333333" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_rate_5.xml" value="0.2911458333333333" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_services.xml" value="0.2911458333333333" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_water_drop.xml" value="0.2911458333333333" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/drawable/ic_worker.xml" value="0.2911458333333333" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/activity_auth.xml" value="0.19882246376811594" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/activity_initial.xml" value="0.1933876811594203" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/activity_main.xml" value="0.161231884057971" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/calendar_current_view.xml" value="0.23505434782608695" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/calendar_default_view.xml" value="0.49768160741885625" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/calendar_green_view.xml" value="0.23505434782608695" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/calendar_red_view.xml" value="0.23505434782608695" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/calendar_yellow_view.xml" value="0.23505434782608695" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/dialog_rate_order.xml" value="0.2341485507246377" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_active_planned_detailed.xml" value="0.2296195652173913" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_additional.xml" value="0.2296195652173913" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_chat.xml" value="0.21693840579710144" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_emergency.xml" value="0.16576086956521738" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_history_planned_detailed.xml" value="0.2296195652173913" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_market.xml" value="0.2318840579710145" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_market_categories.xml" value="0.2318840579710145" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_market_workers.xml" value="0.2269021739130435" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_news_detailed.xml" value="0.5181550539744848" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_order_detailed.xml" value="0.2318840579710145" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_payment.xml" value="0.23867753623188406" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_planned.xml" value="0.17391304347826086" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_planned_categories.xml" value="0.21829710144927536" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_planned_categories_lvl2.xml" value="0.21331521739130435" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_planned_date.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_planned_detailed.xml" value="0.38023450586264657" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_planned_info.xml" value="0.264" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_planned_subcategory.xml" value="0.2028985507246377" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_profile.xml" value="0.26268115942028986" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_services.xml" value="0.17391304347826086" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_success.xml" value="0.2028985507246377" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/fragment_worker_info.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/home_cards_layout.xml" value="0.23278985507246377" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_active_order.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_category_card.xml" value="0.1" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_category_section.xml" value="0.2318840579710145" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_news.xml" value="0.264" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_notification.xml" value="0.4020100502512563" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_order.xml" value="0.2318840579710145" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_photo.xml" value="0.4" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_planned_order.xml" value="0.264" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_preview_worker.xml" value="0.4115853658536585" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_push_notification.xml" value="0.21693840579710144" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_sectioned_category_card.xml" value="0.2318840579710145" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_worker.xml" value="0.536" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_worker_review.xml" value="0.21739130434782608" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_worker_service.xml" value="0.3127413127413127" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/layout/test.xml" value="0.264" />
+        <entry key="..\:/SpasDomUserApp/SpasDomUserAppKotlin/app/src/main/res/menu/bottom_nav_menu.xml" value="0.275" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeEmployee/app/src/main/res/layout/activity_auth.xml" value="0.25555555555555554" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeEmployee/app/src/main/res/layout/activity_initial.xml" value="0.25555555555555554" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeEmployee/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeEmployee/app/src/main/res/layout/item_worker_service.xml" value="0.25555555555555554" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeEmployee/app/src/main/res/layout/toolbar_info.xml" value="0.25555555555555554" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/item_order.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_planned_order.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

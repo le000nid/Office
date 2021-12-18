@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.officemanagerapp.ui.home.HomeFragment"
+        android:label="Главная"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_newsDetailedFragment"
+            app:destination="@id/newsDetailedFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.officemanagerapp.ui.chat.ChatFragment"
+        android:label="Чат"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_chatFragment_to_singleChatFragment"
+            app:destination="@id/singleChatFragment" />
+        <argument
+            android:name="currentChat"
+            app:argType="com.example.officemanagerapp.ui.chat.Chat" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.officemanagerapp.ui.payment.PaymentFragment"
+        android:label="Оплата"
+        tools:layout="@layout/fragment_payment" />
+    <fragment
+        android:id="@+id/servicesFragment"
+        android:name="com.example.officemanagerapp.ui.services.ServicesFragment"
+        android:label="Услуги"
+        tools:layout="@layout/fragment_services">
+        <action
+            android:id="@+id/action_servicesFragment_to_plannedCategoriesFragment"
+            app:destination="@id/plannedCategoriesFragment" />
+        <action
+            android:id="@+id/action_servicesFragment_to_orderDetailedFragment"
+            app:destination="@id/orderDetailedFragment" />
+        <action
+            android:id="@+id/action_servicesFragment_to_marketCategoriesFragment"
+            app:destination="@id/marketCategoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.officemanagerapp.ui.profile.ProfileFragment"
+        android:label="Профиль"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/newsDetailedFragment"
+        android:name="com.example.officemanagerapp.ui.home.NewsDetailedFragment"
+        android:label="Новость подробно"
+        tools:layout="@layout/fragment_news_detailed">
+        <argument
+            android:name="newsItem"
+            app:argType="com.example.officemanagerapp.models.NewsItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/plannedFragment"
+        android:name="com.example.officemanagerapp.ui.services.planned.PlannedFragment"
+        android:label="fragment_planned"
+        tools:layout="@layout/fragment_planned" />
+    <fragment
+        android:id="@+id/plannedCategoriesFragment"
+        android:name="com.example.officemanagerapp.ui.services.planned.category.PlannedCategoriesFragment"
+        android:label="Выберите категорию"
+        tools:layout="@layout/fragment_planned_categories">
+        <action
+            android:id="@+id/action_plannedCategoriesFragment_to_plannedSubcategoryFragment"
+            app:destination="@id/plannedSubcategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plannedSubcategoryFragment"
+        android:name="com.example.officemanagerapp.ui.services.planned.subcategory.PlannedSubcategoryFragment"
+        android:label="{categoryName}"
+        tools:layout="@layout/fragment_planned_subcategory">
+        <argument
+            android:name="category"
+            app:argType="com.example.officemanagerapp.models.CategoriesList" />
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_plannedSubcategoryFragment_to_plannedInfoFragment"
+            app:destination="@id/orderInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderInfoFragment"
+        android:name="com.example.officemanagerapp.ui.services.orderInfo.PlannedInfoFragment"
+        android:label="{appBarTitle}"
+        tools:layout="@layout/fragment_order_info">
+        <argument
+            android:name="appBarTitle"
+            app:argType="string" />
+        <argument
+            android:name="plannedOrderPost"
+            app:argType="com.example.officemanagerapp.models.PlannedOrderPost"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_plannedInfoFragment_to_plannedDateFragment"
+            app:destination="@id/plannedDateFragment" />
+        <argument
+            android:name="marketOrderPost"
+            app:argType="com.example.officemanagerapp.models.MarketOrderPost"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/plannedDateFragment"
+        android:name="com.example.officemanagerapp.ui.services.ordercalendar.PlannedDateFragment"
+        android:label="{appBarTitle}"
+        tools:layout="@layout/fragment_order_calendar">
+        <argument
+            android:name="appBarTitle"
+            app:argType="string" />
+        <argument
+            android:name="plannedOrderPost"
+            app:argType="com.example.officemanagerapp.models.PlannedOrderPost"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_plannedDateFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:popUpTo="@id/successFragment"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="marketOrderPost"
+            app:argType="com.example.officemanagerapp.models.MarketOrderPost"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.example.officemanagerapp.ui.services.SuccessFragment"
+        android:label="Успех"
+        tools:layout="@layout/fragment_success">
+        <action
+            android:id="@+id/action_successFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_successFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment"
+            app:popUpTo="@id/servicesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailedFragment"
+        android:name="com.example.officemanagerapp.ui.services.base.OrderDetailedFragment"
+        android:label="{orderTitle}"
+        tools:layout="@layout/fragment_order_detailed">
+        <argument
+            android:name="orderTitle"
+            app:argType="string" />
+        <argument
+            android:name="order"
+            app:argType="com.example.officemanagerapp.models.Order" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleChatFragment"
+        android:name="com.example.officemanagerapp.ui.chat.singlechat.SingleChatFragment"
+        android:label="fragment_single_chat"
+        tools:layout="@layout/fragment_single_chat" >
+        <argument
+            android:name="currentChat"
+            app:argType="com.example.officemanagerapp.ui.chat.Chat" />
+    </fragment>
+    <fragment
+        android:id="@+id/marketCategoriesFragment"
+        android:name="com.example.officemanagerapp.ui.services.market.addmarketorder.MarketCategoriesFragment"
+        android:label="Выберите категорию"
+        tools:layout="@layout/fragment_market_categories" >
+        <action
+            android:id="@+id/action_marketCategoriesFragment_to_marketWorkersFragment"
+            app:destination="@id/marketWorkersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/marketWorkersFragment"
+        android:name="com.example.officemanagerapp.ui.services.market.workers.MarketWorkersFragment"
+        android:label="{appBarTitle}"
+        tools:layout="@layout/fragment_market_workers">
+        <argument
+            android:name="appBarTitle"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="com.example.officemanagerapp.models.CategoriesList" />
+        <action
+            android:id="@+id/action_marketWorkersFragment_to_workerInfoFragment"
+            app:destination="@id/workerInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workerInfoFragment"
+        android:name="com.example.officemanagerapp.ui.services.market.workerInfo.WorkerInfoFragment"
+        android:label="{appBarTitle}"
+        tools:layout="@layout/fragment_worker_info">
+        <argument
+            android:name="appBarTitle"
+            app:argType="string" />
+        <argument
+            android:name="workerPreview"
+            app:argType="com.example.officemanagerapp.models.WorkerPreview" />
+        <action
+            android:id="@+id/action_workerInfoFragment_to_orderInfoFragment"
+            app:destination="@id/orderInfoFragment" />
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>
