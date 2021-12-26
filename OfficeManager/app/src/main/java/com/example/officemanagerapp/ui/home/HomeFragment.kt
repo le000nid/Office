@@ -75,7 +75,7 @@ class HomeFragment : Fragment() {
         alertsAdapter = AlertsAdapter()
 
         binding.root.findViewById<RecyclerView>(R.id.news_recycler_view).apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                      //object : LinearLayoutManager(context, HORIZONTAL, false){ override fun canScrollVertically(): Boolean { return false } }
             adapter = newsAdapter
         }

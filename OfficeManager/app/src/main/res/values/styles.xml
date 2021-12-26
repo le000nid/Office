@@ -8,6 +8,7 @@
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
+        <item name="android:windowBackground">@color/backGrey</item>
 
         <!-- TODO(Set global font later)
         <item name="android:fontFamily">@font/ibm_regular</item>
@@ -15,8 +16,6 @@
     </style>
 
     <style name="cardWithBorder" parent="Widget.MaterialComponents.CardView">
-        <item name="strokeColor">@color/grayMiddle</item>
-        <item name="strokeWidth">1dp</item>
         <item name="cardElevation">0dp</item>
         <item name="cardCornerRadius">16dp</item>
     </style>
@@ -36,7 +35,7 @@
         <item name="android:layout_height">0dp</item>
         <item name="cardElevation">0dp</item>
         <item name="cardCornerRadius">8dp</item>
-        <item name="cardBackgroundColor">@color/grayLight</item>
+        <item name="cardBackgroundColor">@color/secondaryLightColor</item>
         <item name="android:clickable">true</item>
     </style>
 

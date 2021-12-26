@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.ItemNewsBinding
 import com.example.officemanagerapp.models.NewsItem
+import com.example.officemanagerapp.util.bindImage
 
 /**
  * RecyclerView Adapter for setting up data binding on the items in the list.
@@ -52,6 +53,7 @@ class NewsItemsAdapter(val callback: NewsItemClick) : RecyclerView.Adapter<NewsI
         holder.viewDataBinding.also {
             it.newsItem = newsItems[position]
             it.newsItemCallback = callback
+            bindImage(it.newsImage, newsItems[position].photoUrl)
         }
     }
 

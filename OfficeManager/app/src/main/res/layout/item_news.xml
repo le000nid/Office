@@ -15,9 +15,9 @@
 
     <com.google.android.material.card.MaterialCardView
         style="@style/cardWithBorder"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/spacing_normal">
+        android:layout_marginBottom="@dimen/spacing_normal">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -29,10 +29,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_big"
+                android:layout_marginBottom="12dp"
                 android:text="@{newsItem.createdAt}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/newsImage"
                 tools:text="01.02.22" />
 
             <TextView
@@ -41,31 +41,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_little"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="@dimen/spacing_normal"
                 android:text="@{newsItem.title}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_news_date"
+                app:layout_constraintStart_toEndOf="@id/newsImage"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Название новости" />
-
-            <TextView
-                android:id="@+id/tv_news_desc"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_little"
-                android:layout_marginEnd="@dimen/spacing_normal"
-                android:layout_marginBottom="@dimen/spacing_normal"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="@{newsItem.shortDescription}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_news_title"
-                tools:text="Какой-то текст относящийся к данной новости и длинной две строки" />
 
             <View
                 android:id="@+id/clickableOverlay"
@@ -77,6 +59,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/newsImage"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/img" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
