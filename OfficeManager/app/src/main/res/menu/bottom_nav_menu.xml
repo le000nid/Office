@@ -21,4 +21,9 @@
         android:title="Профиль"
         android:icon="@drawable/ic_profile"/>
 
+    <item
+        android:id="@+id/workersFragment"
+        android:title="Рабочие"
+        android:icon="@drawable/ic_time"/>
+
 </menu>

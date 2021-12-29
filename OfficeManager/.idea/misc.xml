@@ -122,6 +122,7 @@
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeEmployee/app/src/main/res/layout/item_worker_service.xml" value="0.25555555555555554" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeEmployee/app/src/main/res/layout/toolbar_info.xml" value="0.25555555555555554" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/drawable/ic_home.xml" value="0.2824074074074074" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/drawable/ic_hourglass.xml" value="0.5703125" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/drawable/ic_market.xml" value="0.2824074074074074" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/drawable/ic_pass.xml" value="0.2824074074074074" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/drawable/ic_problem.xml" value="0.2824074074074074" />
@@ -130,12 +131,15 @@
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/drawable/ic_water_drop.xml" value="0.2824074074074074" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/drawable/ic_worker.xml" value="0.2824074074074074" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/activity_main.xml" value="0.175" />
-        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/fragment_home.xml" value="0.5117056856187291" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/fragment_home.xml" value="0.5" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/fragment_news_detailed.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/fragment_workers.xml" value="0.27152988855116517" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/item_category_card.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/item_news.xml" value="0.5" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/item_notification.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/layout/item_order.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/le000nid/Documents/GitHub/Office/OfficeManager/app/src/main/res/menu/bottom_nav_menu.xml" value="0.28055555555555556" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/le000nid/Documents/GitHub/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_planned_order.xml" value="0.33" />
       </map>

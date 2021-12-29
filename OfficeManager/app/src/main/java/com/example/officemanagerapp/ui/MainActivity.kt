@@ -75,7 +75,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeFragment,
                 R.id.chatFragment,
                 R.id.paymentFragment,
-                R.id.profileFragment
+                R.id.profileFragment,
+                R.id.workersFragment
             ))
 
         binding.bottomNavigationView.setupWithNavController(navController)
@@ -86,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.chatFragment -> showBottomNav()
                 R.id.paymentFragment -> showBottomNav()
                 R.id.profileFragment -> showBottomNav()
+                R.id.workersFragment -> showBottomNav()
                 else -> hideBottomNav()
             }
         }
