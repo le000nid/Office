@@ -220,5 +220,10 @@
             android:name="categoryId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/passFragment"
+        android:name="com.example.officemanagerapp.ui.pass.PassFragment"
+        android:label="Выписанные пропуски"
+        tools:layout="@layout/fragment_pass" />
 
 </navigation>

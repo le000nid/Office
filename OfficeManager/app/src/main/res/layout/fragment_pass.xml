@@ -10,7 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.pass.PassFragment">
+        tools:context=".ui.pass.PassFragment"
+        android:background="@color/backGrey">
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -33,13 +34,14 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:text="12 февраля 2021"
             tools:text="12 февраля 2021" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/passRV"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

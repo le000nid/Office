@@ -61,7 +61,6 @@ class HomeFragment : Fragment() {
                 is HomeRVItem.Alert -> { }
                 is HomeRVItem.HomeCard -> { }
                 is HomeRVItem.NewsItem -> {
-                    Log.i("navigation", "newsItemClick")
                     val action = HomeFragmentDirections.actionHomeFragmentToNewsDetailedFragment(homeRVItem)
                     findNavController().navigate(action)
                 }

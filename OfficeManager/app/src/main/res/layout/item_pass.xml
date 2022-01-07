@@ -4,12 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="passClick"
+            type="com.example.officemanagerapp.ui.pass.PassAdapter.OnClickListener" />
+        <variable
+            name="pass"
+            type="com.example.officemanagerapp.models.Pass" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> passClick.onClick(pass)}">
 
         <View
             android:id="@+id/view"
@@ -41,6 +47,7 @@
 
         <TextView
             android:id="@+id/title"
+            android:text="@{@string/pass_id(pass.id)}"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -52,6 +59,7 @@
             tools:text="Пропуск №1214" />
 
         <TextView
+            android:text="@{pass.fullDate}"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -52,6 +52,15 @@ object AppModule {
         return remoteDataSource.buildApi(HomeApi::class.java, context)
     }
 
+    @Singleton
+    @Provides
+    fun providePassApi(
+        remoteDataSource: RemoteDataSource,
+        @ApplicationContext context: Context
+    ): PassApi {
+        return remoteDataSource.buildApi(PassApi::class.java, context)
+    }
+
     @ApplicationScope
     @Provides
     @Singleton

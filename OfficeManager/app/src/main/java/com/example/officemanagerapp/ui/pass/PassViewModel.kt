@@ -10,9 +10,10 @@ import com.example.officemanagerapp.repository.PassRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class PassViewModel (
+class PassViewModel @Inject constructor (
     private val repository: PassRepository
 ): ViewModel() {
 

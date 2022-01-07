@@ -5,7 +5,7 @@
         android:title="Главная"
         android:icon="@drawable/ic_home"/>
     <item
-        android:id="@+id/pass"
+        android:id="@+id/passFragment"
         android:title="Выписать пропуск"
         android:icon="@drawable/ic_home"/>
 

@@ -8,4 +8,6 @@ data class Pass (
     val dateEnd: String,
     val who: String,
     val phone: String
-)
+) {
+    val fullDate: String = "$dateStart - $dateEnd"
+}
