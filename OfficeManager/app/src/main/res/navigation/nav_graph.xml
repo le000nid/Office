@@ -225,5 +225,10 @@
         android:name="com.example.officemanagerapp.ui.pass.PassFragment"
         android:label="Выписанные пропуски"
         tools:layout="@layout/fragment_pass" />
+    <fragment
+        android:id="@+id/timeControlFragment"
+        android:name="com.example.officemanagerapp.ui.timecontrol.TimeControlFragment"
+        android:label="Контроль времени"
+        tools:layout="@layout/fragment_time_control"/>
 
 </navigation>

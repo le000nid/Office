@@ -35,7 +35,7 @@
         android:icon="@drawable/ic_home"/>
 
     <item
-        android:id="@+id/timeControl"
+        android:id="@+id/timeControlFragment"
         android:title="Контроль времени"
         android:icon="@drawable/ic_home"/>
 
