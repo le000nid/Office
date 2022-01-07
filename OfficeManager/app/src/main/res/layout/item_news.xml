@@ -4,27 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="newsItem"
-            type="com.example.officemanagerapp.models.NewsItem" />
 
         <variable
-            name="newsItemCallback"
-            type="com.example.officemanagerapp.ui.home.NewsItemClick" />
+            name="newsItem"
+            type="com.example.officemanagerapp.models.HomeRVItem.NewsItem" />
+
+        <variable
+            name="newsItemClick"
+            type="com.example.officemanagerapp.ui.home.HomeAdapter.OnClickListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         style="@style/cardWithBorder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_normal">
+        android:onClick="@{() -> newsItemClick.onClick(newsItem)}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_news_date"
+                android:id="@+id/txNewsDate"
                 style="@style/TextAppearance.MaterialComponents.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,7 +37,7 @@
                 tools:text="01.02.22" />
 
             <TextView
-                android:id="@+id/tv_news_title"
+                android:id="@+id/txNewsTitle"
                 style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -49,17 +50,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Название новости" />
 
-            <View
-                android:id="@+id/clickableOverlay"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="?attr/selectableItemBackground"
-                android:onClick="@{() -> newsItemCallback.onClick(newsItem)}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <ImageView
                 android:id="@+id/newsImage"
                 android:layout_width="64dp"
@@ -67,6 +57,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                app:imageFromURL="@{newsItem.photoUrl}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

@@ -4,13 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.officemanagerapp.models.Alert
-import com.example.officemanagerapp.models.NetworkAlert
-import com.example.officemanagerapp.models.NetworkNewsItem
-import com.example.officemanagerapp.models.NewsItem
+import com.example.officemanagerapp.models.*
 import com.example.officemanagerapp.network.Resource
 import com.example.officemanagerapp.repository.HomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,32 +18,41 @@ class HomeViewModel @Inject constructor(
     private val repository: HomeRepository
 ): ViewModel() {
 
+    private val _homeListItemsLiveData = MutableLiveData<Resource<List<HomeRVItem>>>()
+    val homeListItemsLiveData: LiveData<Resource<List<HomeRVItem>>>
+        get() = _homeListItemsLiveData
 
-
-
-    /**
-     * Network get request. All news.
-     */
-    private val _news: MutableLiveData<Resource<List<NetworkNewsItem>>> = MutableLiveData()
-    val news: LiveData<Resource<List<NetworkNewsItem>>>
-        get() = _news
-
-    fun getNews() = viewModelScope.launch {
-        _news.value = Resource.Loading
-        _news.value = repository.getNews()
+    init {
+        getHomeListItems()
     }
 
+    fun getHomeListItems() = viewModelScope.launch {
+        _homeListItemsLiveData.postValue(Resource.Loading)
+        val newsDeferred = async { repository.getNews() }
+        val alertsDeferred = async { repository.getAlerts() }
 
+        val news = newsDeferred.await()
+        val alerts = alertsDeferred.await()
 
-    /**
-     * Network get request. All alerts.
-     */
-    private val _alerts: MutableLiveData<Resource<List<NetworkAlert>>> = MutableLiveData()
-    val alerts: LiveData<Resource<List<NetworkAlert>>>
-        get() = _alerts
+        val homeItemsList = mutableListOf<HomeRVItem>()
+        // TODO(add other cases)
+        if (news is Resource.Success && alerts is Resource.Success) {
+            homeItemsList.addAll(alerts.value)
 
-    fun getAlerts() = viewModelScope.launch {
-        _alerts.value = Resource.Loading
-        _alerts.value = repository.getAlerts()
+            homeItemsList.add(HomeRVItem.Title("Основное"))
+
+            homeItemsList.add(HomeRVItem.HomeCard("Выписать пропуск", ""))
+            homeItemsList.add(HomeRVItem.HomeCard("Заказать мастера", ""))
+            homeItemsList.add(HomeRVItem.HomeCard("Маркет услуг", ""))
+            homeItemsList.add(HomeRVItem.HomeCard("Возникла проблема", ""))
+
+            homeItemsList.add(HomeRVItem.Title("Обратите внимание"))
+
+            homeItemsList.addAll(news.value)
+
+            _homeListItemsLiveData.postValue(Resource.Success(homeItemsList))
+        } else {
+            Resource.Failure(false, null, null)
+        }
     }
 }

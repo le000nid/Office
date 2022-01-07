@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
+            name="alertClick"
+            type="com.example.officemanagerapp.ui.home.HomeAdapter.OnClickListener" />
+        <variable
             name="alert"
-            type="com.example.officemanagerapp.models.Alert" />
+            type="com.example.officemanagerapp.models.HomeRVItem.Alert" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -14,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_normal"
         android:layout_marginEnd="@dimen/spacing_normal"
+        android:onClick="@{() -> alertClick.onClick(alert)}"
         style="@style/cardWithBorder">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +26,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_alert_title"
+                android:id="@+id/txAlertTitle"
                 style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:text="@{alert.title}"
                 android:layout_width="0dp"
@@ -35,7 +40,7 @@
                 tools:text="Начало повседневной работы" />
 
             <TextView
-                android:id="@+id/tv_alert_desc"
+                android:id="@+id/txAlertDesc"
                 style="@style/TextAppearance.MaterialComponents.Caption"
                 android:text="@{alert.body}"
                 android:layout_width="0dp"
@@ -49,17 +54,18 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_alert_title"
+                app:layout_constraintTop_toBottomOf="@+id/txAlertTitle"
                 tools:text="Таким образом новая модель организационной деятельности позволяет оценить значение позиций, занимаемых..." />
 
             <ImageView
-                android:id="@+id/image_alert"
+                android:id="@+id/icAlert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_normal"
                 android:layout_marginEnd="@dimen/spacing_normal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txAlertTitle"
+                app:layout_constraintBottom_toBottomOf="@id/txAlertTitle"
                 app:srcCompat="@drawable/ic_alert"
                 app:tint="@color/secondaryColor" />
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:title="Главная"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/pass"
+        android:title="Выписать пропуск"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/orderMaster"
+        android:title="Заказать мастера"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/market"
+        android:title="Маркет услуг"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/inbox"
+        android:title="Заявки"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/paymentFragment"
+        android:title="Оплата"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/chatFragment"
+        android:title="Чаты"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/timeControl"
+        android:title="Контроль времени"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/tenants"
+        android:title="Арендаторы"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/survey"
+        android:title="Анектирование"
+        android:icon="@drawable/ic_home"/>
+</menu>

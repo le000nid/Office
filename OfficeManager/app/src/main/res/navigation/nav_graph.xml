@@ -66,7 +66,7 @@
         tools:layout="@layout/fragment_news_detailed">
         <argument
             android:name="newsItem"
-            app:argType="com.example.officemanagerapp.models.NewsItem" />
+            app:argType="com.example.officemanagerapp.models.HomeRVItem$NewsItem" />
     </fragment>
     <fragment
         android:id="@+id/plannedFragment"

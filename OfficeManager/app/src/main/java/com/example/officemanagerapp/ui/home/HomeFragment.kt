@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentHomeBinding
-import com.example.officemanagerapp.models.NewsItem
+import com.example.officemanagerapp.models.HomeRVItem
 import com.example.officemanagerapp.network.Resource
-import com.example.officemanagerapp.util.handleApiError
+import com.example.officemanagerapp.util.hide
+import com.example.officemanagerapp.util.show
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -22,89 +21,66 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModels()
-    private var newsAdapter: NewsItemsAdapter? = null
-    private var alertsAdapter: AlertsAdapter? = null
-
+    private lateinit var homeAdapter: HomeAdapter
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentHomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container,false)
-
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container,false)
         binding.lifecycleOwner = viewLifecycleOwner
-        binding.viewModel = viewModel
 
-
-        viewModel.getNews()
-
-        viewModel.news.observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Success -> {
-
-                }
-                is Resource.Loading -> { }
-                is Resource.Failure -> handleApiError(it) { }
-            }
-        }
-
-
-        viewModel.getAlerts()
-
-        viewModel.alerts.observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Success -> {
-
-                }
-                is Resource.Loading -> { }
-                is Resource.Failure -> handleApiError(it) { }
-            }
-        }
-
-
-        newsAdapter = NewsItemsAdapter(NewsItemClick {
-            val action = HomeFragmentDirections.actionHomeFragmentToNewsDetailedFragment(it)
-            findNavController().navigate(action)
-        })
-
-        alertsAdapter = AlertsAdapter()
-
-        binding.root.findViewById<RecyclerView>(R.id.news_recycler_view).apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-                     //object : LinearLayoutManager(context, HORIZONTAL, false){ override fun canScrollVertically(): Boolean { return false } }
-            adapter = newsAdapter
-        }
-
-        binding.root.findViewById<RecyclerView>(R.id.alerts_rv).apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = alertsAdapter
-        }
-
-        binding.apply {
-            swipeRefreshHome.setOnRefreshListener {
-                viewModel?.getAlerts()
-                viewModel?.getNews()
-                swipeRefreshHome.isRefreshing = false
-            }
-        }
-
-        binding.card2.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToServicesFragment()
-            findNavController().navigate(action)
-        }
+        setUpAdapter()
+        fetchingData()
 
         return binding.root
     }
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
+    private fun fetchingData() {
+        viewModel.homeListItemsLiveData.observe(viewLifecycleOwner) { result ->
+            when(result) {
+                is Resource.Failure -> {
+                    binding.progressBar.hide()
+                }
+                is Resource.Loading -> binding.progressBar.show()
+                is Resource.Success -> {
+                    binding.progressBar.hide()
+                    homeAdapter?.items = result.value
+                }
+            }
+        }
     }
-}
 
-class NewsItemClick(val block: (NewsItem) -> Unit) {
-    fun onClick(newsItem: NewsItem) = block(newsItem)
+    private fun setUpAdapter() {
+        homeAdapter = HomeAdapter(HomeAdapter.OnClickListener {
+            when(it) {
+                is HomeRVItem.Alert -> TODO()
+                is HomeRVItem.HomeCard -> TODO()
+                is HomeRVItem.NewsItem -> TODO()
+                is HomeRVItem.Title -> { /* do nothing */ }
+            }
+        })
+
+        binding.homeRV.apply {
+            setHasFixedSize(true)
+
+            val manager = GridLayoutManager(requireContext(), 4, GridLayoutManager.VERTICAL, false)
+
+            manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    return when(homeAdapter.items[position]) {
+                        is HomeRVItem.Title -> 4
+                        is HomeRVItem.Alert -> 4
+                        is HomeRVItem.HomeCard -> 1
+                        is HomeRVItem.NewsItem -> 4
+                    }
+                }
+            }
+
+            layoutManager = manager
+            adapter = homeAdapter
+        }
+    }
 }
