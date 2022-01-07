@@ -16,6 +16,7 @@
     <color name="grayLight">#F0F0F0</color>
     <color name="primaryBlack">#000000</color>
     <color name="backGrey">#F9F7FB</color>
+    <color name="transparentBlack">#CCA1A1A1</color>
 
 
     <color name="material_drawer_primary">#2196F3</color>
