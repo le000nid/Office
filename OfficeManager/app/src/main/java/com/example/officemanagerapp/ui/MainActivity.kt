@@ -3,15 +3,12 @@ package com.example.officemanagerapp.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.database.UserPreferences
 import com.example.officemanagerapp.databinding.ActivityMainBinding
@@ -22,29 +19,38 @@ import com.example.officemanagerapp.util.startNewActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var navController: NavController
-
     @Inject
     lateinit var userPreferences: UserPreferences
-
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
     private val viewModel by viewModels<ProfileViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         loginInFirebase()
         //loginSetUp()
-        navigationConfigurationSetUp()
+        navigationSetUp()
+    }
+
+    private fun navigationSetUp() {
+        setSupportActionBar(toolbar)
+
+        navController = Navigation.findNavController(this, R.id.fragment)
+
+        NavigationUI.setupWithNavController(navView, navController)
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun performLogout() = lifecycleScope.launch {
@@ -66,45 +72,9 @@ class MainActivity : AppCompatActivity() {
         navHostFragment.navController.graph = graph
     }*/
 
-    private fun navigationConfigurationSetUp() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.findNavController()
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.homeFragment,
-                R.id.chatFragment,
-                R.id.paymentFragment,
-                R.id.profileFragment,
-                R.id.workersFragment
-            ))
-
-        binding.bottomNavigationView.setupWithNavController(navController)
-
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
-                R.id.homeFragment -> showBottomNav()
-                R.id.chatFragment -> showBottomNav()
-                R.id.paymentFragment -> showBottomNav()
-                R.id.profileFragment -> showBottomNav()
-                R.id.workersFragment -> showBottomNav()
-                else -> hideBottomNav()
-            }
-        }
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
-    }
-
-    private fun showBottomNav() {
-        binding.bottomNavigationView.visibility = View.VISIBLE
-    }
-
-    private fun hideBottomNav() {
-        binding.bottomNavigationView.visibility = View.GONE
-    }
 
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
     private fun loginInFirebase(){
         val login = "Test2@gmail.com"
