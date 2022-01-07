@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentPassBinding
@@ -48,6 +49,11 @@ class PassFragment : Fragment() {
     private fun initClicks() {
         binding.txDate.setOnClickListener {
             openDatePicker()
+        }
+
+        binding.fab.setOnClickListener {
+            val action = PassFragmentDirections.actionPassFragmentToAddPassFragment()
+            findNavController().navigate(action)
         }
     }
 

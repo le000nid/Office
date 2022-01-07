@@ -41,12 +41,17 @@
         <entry key="..\:/AndroidProject/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/toolbar_info.xml" value="0.25" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/circle.xml" value="0.27685185185185185" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/activity_main.xml" value="0.23007246376811594" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_add_pass.xml" value="0.264" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_market.xml" value="0.1046875" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_new_detailed.xml" value="0.23052536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_news_detailed.xml" value="0.23052536231884058" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_order_calendar.xml" value="0.23052536231884058" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_order_detailed.xml" value="0.23052536231884058" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_order_info.xml" value="0.23052536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_pass.xml" value="0.21285140562248997" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_planned.xml" value="0.1046875" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_planned_categories.xml" value="0.23052536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_time_control.xml" value="0.23052536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_alert.xml" value="0.1337386018237082" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_category_card.xml" value="0.23052536231884058" />

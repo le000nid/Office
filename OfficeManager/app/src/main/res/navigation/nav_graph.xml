@@ -224,11 +224,20 @@
         android:id="@+id/passFragment"
         android:name="com.example.officemanagerapp.ui.pass.PassFragment"
         android:label="Выписанные пропуски"
-        tools:layout="@layout/fragment_pass" />
+        tools:layout="@layout/fragment_pass" >
+        <action
+            android:id="@+id/action_passFragment_to_addPassFragment"
+            app:destination="@id/addPassFragment" />
+    </fragment>
     <fragment
         android:id="@+id/timeControlFragment"
         android:name="com.example.officemanagerapp.ui.timecontrol.TimeControlFragment"
         android:label="Контроль времени"
         tools:layout="@layout/fragment_time_control"/>
+    <fragment
+        android:id="@+id/addPassFragment"
+        android:name="com.example.officemanagerapp.ui.pass.AddPassFragment"
+        android:label="Выписать временный пропуск"
+        tools:layout="@layout/fragment_add_pass" />
 
 </navigation>
