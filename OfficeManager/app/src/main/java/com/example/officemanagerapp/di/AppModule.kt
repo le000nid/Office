@@ -1,9 +1,6 @@
 package com.example.officemanagerapp.di
 
-import android.app.Application
 import android.content.Context
-import androidx.room.Room
-import com.example.officemanagerapp.database.CacheDatabase
 import com.example.officemanagerapp.network.*
 import dagger.Module
 import dagger.Provides
@@ -54,19 +51,6 @@ object AppModule {
     ): HomeApi {
         return remoteDataSource.buildApi(HomeApi::class.java, context)
     }
-
-    @Provides
-    @Singleton
-    fun provideDatabase(
-        app: Application,
-        callback: CacheDatabase.Callback
-    ) = Room.databaseBuilder(app, CacheDatabase::class.java, "cache_database")
-        .fallbackToDestructiveMigration()
-        .addCallback(callback)
-        .build()
-
-    @Provides
-    fun provideCacheDao(db: CacheDatabase) = db.cacheDao()
 
     @ApplicationScope
     @Provides

@@ -17,8 +17,6 @@ class PlannedViewModel@Inject constructor(
     private val repository: OrdersRepository
 ): ViewModel() {
 
-    val activePlannedOrders: LiveData<List<Order>> = repository.activePlannedOrders
-    val historyPlannedOrders: LiveData<List<Order>> = repository.historyPlannedOrders
 
     /**
      * Network get request. All planned orders
@@ -31,14 +29,6 @@ class PlannedViewModel@Inject constructor(
         _plannedOrders.value = Resource.Loading
         _plannedOrders.value = repository.getPlannedOrders()
     }
-
-    /**
-     * DataBase insert query. All planned orders
-     */
-    fun insertAllPlannedOrdersToCache(orders: List<NetworkOrder>) = viewModelScope.launch {
-        repository.insertAllPlannedOrdersToCache(orders)
-    }
-
 
 
     private val _plannedPutResponse: MutableLiveData<Resource<Boolean>> = MutableLiveData()

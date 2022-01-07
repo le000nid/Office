@@ -28,8 +28,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="visible"
-                    app:visibleRv1="@{viewModel.alertsItems}"
-                    app:visibleRv2="@{viewModel.newsItems}"
                     app:constraint_referenced_ids="alerts_rv, textNews, news_recycler_view, textMain, cards" />
 
                 <!--<ProgressBar

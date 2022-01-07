@@ -17,8 +17,6 @@ class MarketViewModel @Inject constructor(
     private val repository: OrdersRepository
 ): ViewModel() {
 
-    val activeMarketOrders: LiveData<List<Order>> = repository.activeMarketOrders
-    val historyMarketOrders: LiveData<List<Order>> = repository.historyMarketOrders
 
     /**
      * Network get request. All market orders
@@ -30,13 +28,6 @@ class MarketViewModel @Inject constructor(
     fun getMarketOrders() = viewModelScope.launch {
         _marketOrders.value = Resource.Loading
         _marketOrders.value = repository.getMarketOrders()
-    }
-
-    /**
-     * DataBase insert query. All planned orders
-     */
-    fun insertAllMarketOrdersToCache(orders: List<NetworkOrder>) = viewModelScope.launch {
-        repository.insertAllMarketOrdersToCache(orders)
     }
 
 

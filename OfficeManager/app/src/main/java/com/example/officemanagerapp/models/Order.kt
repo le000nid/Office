@@ -1,8 +1,6 @@
 package com.example.officemanagerapp.models
 
 import android.os.Parcelable
-import com.example.officemanagerapp.database.CacheMarketOrder
-import com.example.officemanagerapp.database.CachePlannedOrder
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import java.time.OffsetDateTime
@@ -43,40 +41,4 @@ data class NetworkOrder(
 ) {
     val date: String
         get() = offsetDate.format(DateTimeFormatter.ofPattern("mm.dd.yyyy"))
-}
-
-
-fun List<NetworkOrder>.asCachePlannedModel(): Array<CachePlannedOrder> {
-    return map {
-        CachePlannedOrder (
-            id = it.id,
-            title = it.title ?: "",
-            date = it.date ?: "",
-            time = it.time ?: "",
-            userRate = it.userRate,
-            userReview = it.userReview ?: "",
-            status = it.status,
-            workerImg = it.workerImg ?: "",
-            workerName = it.workerName ?: "",
-            workerRate = it.workerRate,
-            workerInfo = it.workerInfo ?: "")
-    }.toTypedArray()
-}
-
-
-fun List<NetworkOrder>.asCacheMarketModel(): Array<CacheMarketOrder> {
-    return map {
-        CacheMarketOrder (
-            id = it.id,
-            title = it.title ?: "",
-            date = it.date ?: "",
-            time = it.time ?: "",
-            userRate = it.userRate,
-            userReview = it.userReview ?: "",
-            status = it.status,
-            workerImg = it.workerImg ?: "",
-            workerName = it.workerName ?: "",
-            workerRate = it.workerRate,
-            workerInfo = it.workerInfo ?: "")
-    }.toTypedArray()
 }

@@ -1,40 +1,20 @@
 package com.example.officemanagerapp.repository
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
-import com.example.officemanagerapp.database.CacheDao
-import com.example.officemanagerapp.database.asDomainMarketOrder
-import com.example.officemanagerapp.database.asDomainPlannedOrder
-import com.example.officemanagerapp.models.*
+import com.example.officemanagerapp.models.MarketOrderPost
+import com.example.officemanagerapp.models.Order
+import com.example.officemanagerapp.models.PlannedOrderPost
 import com.example.officemanagerapp.network.OrderApi
 import com.example.officemanagerapp.network.SafeApiCall
 import com.example.officemanagerapp.responses.OrderUpdate
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class OrdersRepository @Inject constructor(
-    private val cacheDao: CacheDao,
     private val api: OrderApi
 ): SafeApiCall {
 
-    val activePlannedOrders: LiveData<List<Order>> =
-        Transformations.map(cacheDao.getPlannedOrders(0)) {
-            it.asDomainPlannedOrder()
-        }
-
-    val historyPlannedOrders: LiveData<List<Order>> =
-        Transformations.map(cacheDao.getPlannedOrders(1)) {
-            it.asDomainPlannedOrder()
-        }
 
     suspend fun getPlannedOrders() = safeApiCall { api.getPlannedOrders() }
 
-    suspend fun insertAllPlannedOrdersToCache(orders: List<NetworkOrder>) {
-        withContext(Dispatchers.IO) {
-            cacheDao.insertAllPlannedOrders(*orders.asCachePlannedModel())
-        }
-    }
 
     suspend fun putPlannedOrder(order: Order) = safeApiCall {
         val userRate = OrderUpdate("userRate", order.userRate.toString())
@@ -49,24 +29,7 @@ class OrdersRepository @Inject constructor(
     }
 
 
-
-    val activeMarketOrders: LiveData<List<Order>> =
-        Transformations.map(cacheDao.getMarketOrders(0)) {
-            it.asDomainMarketOrder()
-        }
-
-    val historyMarketOrders: LiveData<List<Order>> =
-        Transformations.map(cacheDao.getMarketOrders(1)) {
-            it.asDomainMarketOrder()
-        }
-
     suspend fun getMarketOrders() = safeApiCall { api.getMarketOrders() }
-
-    suspend fun insertAllMarketOrdersToCache(orders: List<NetworkOrder>) {
-        withContext(Dispatchers.IO) {
-            cacheDao.insertAllMarketOrders(*orders.asCacheMarketModel())
-        }
-    }
 
     suspend fun putMarketOrder(order: Order) = safeApiCall {
         val userRate = OrderUpdate("userRate", order.userRate.toString())

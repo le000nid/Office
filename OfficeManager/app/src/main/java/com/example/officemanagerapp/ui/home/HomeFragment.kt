@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
         viewModel.news.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {
-                    viewModel.insertAllNewsToCache(it.value)
+
                 }
                 is Resource.Loading -> { }
                 is Resource.Failure -> handleApiError(it) { }
@@ -55,11 +55,7 @@ class HomeFragment : Fragment() {
         viewModel.alerts.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {
-                    if (it.value.isEmpty()) {
-                        viewModel.deleteAllAlerts()
-                    } else {
-                        viewModel.insertAllAlertsToCache(it.value)
-                    }
+
                 }
                 is Resource.Loading -> { }
                 is Resource.Failure -> handleApiError(it) { }
@@ -105,17 +101,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.newsItems.observe(viewLifecycleOwner, { news ->
-            news?.apply {
-                newsAdapter?.newsItems = news
-            }
-        })
 
-        viewModel.alertsItems.observe(viewLifecycleOwner, { alerts ->
-            alerts?.apply {
-                alertsAdapter?.alerts = alerts
-            }
-        })
     }
 }
 

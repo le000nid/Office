@@ -25,16 +25,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
-                app:visibleRv1="@{viewModel.activePlannedOrders}"
-                app:visibleRv2="@{viewModel.historyPlannedOrders}"
                 app:constraint_referenced_ids="action_add_order, textView2, active_planned_rv, tx_history, history_planned_rv" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:goneRv1="@{viewModel.activePlannedOrders}"
-                app:goneRv2="@{viewModel.historyPlannedOrders}"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true" />
 
@@ -66,7 +62,6 @@
                         android:layout_marginStart="@dimen/spacing_normal"
                         android:layout_marginTop="@dimen/spacing_large"
                         android:text="Активные"
-                        app:goneIfNull="@{viewModel.activePlannedOrders }"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,7 +82,6 @@
                         android:layout_marginStart="@dimen/spacing_normal"
                         android:layout_marginTop="@dimen/spacing_large"
                         android:text="История"
-                        app:goneIfNull="@{viewModel.historyPlannedOrders }"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/active_planned_rv" />
 

@@ -1,7 +1,6 @@
 package com.example.officemanagerapp.models
 
 import android.os.Parcelable
-import com.example.officemanagerapp.database.CacheNewsItem
 import com.example.officemanagerapp.util.smartTruncate
 import kotlinx.android.parcel.Parcelize
 
@@ -22,14 +21,3 @@ data class NetworkNewsItem(
     val photoUrl: String?,
     val createdAt: String?,
 )
-
-fun List<NetworkNewsItem>.asCacheModel(): Array<CacheNewsItem> {
-    return map {
-        CacheNewsItem(
-            title = it.title ?: "",
-            description = it.description ?: "",
-            photoUrl = it.photoUrl ?: "",
-            createdAt = it.createdAt ?: "",
-        )
-    }.toTypedArray()
-}

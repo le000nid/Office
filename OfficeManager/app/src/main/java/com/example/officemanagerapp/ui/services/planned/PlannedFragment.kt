@@ -51,7 +51,7 @@ class PlannedFragment : Fragment() {
         viewModel.plannedOrders.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {
-                    viewModel.insertAllPlannedOrdersToCache(it.value)
+
                 }
                 is Resource.Loading -> { }
                 is Resource.Failure -> handleApiError(it) {  }
@@ -102,17 +102,6 @@ class PlannedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.activePlannedOrders.observe(viewLifecycleOwner, { orders ->
-            orders?.apply {
-                activeAdapter?.activeOrders = orders
-            }
-        })
-
-        viewModel.historyPlannedOrders.observe(viewLifecycleOwner, { orders ->
-            orders?.apply {
-                historyAdapter?.historyOrders = orders
-            }
-        })
     }
 
 

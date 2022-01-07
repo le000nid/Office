@@ -51,7 +51,7 @@ class MarketFragment : Fragment() {
         viewModel.marketOrders.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {
-                    viewModel.insertAllMarketOrdersToCache(it.value)
+
                 }
                 is Resource.Loading -> { }
                 is Resource.Failure -> handleApiError(it) {  }
@@ -102,17 +102,7 @@ class MarketFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.activeMarketOrders.observe(viewLifecycleOwner, { orders ->
-            orders?.apply {
-                activeAdapter?.activeOrders = orders
-            }
-        })
 
-        viewModel.historyMarketOrders.observe(viewLifecycleOwner, { orders ->
-            orders?.apply {
-                historyAdapter?.historyOrders = orders
-            }
-        })
     }
 
 

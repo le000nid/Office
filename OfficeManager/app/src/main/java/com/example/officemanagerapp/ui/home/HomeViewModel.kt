@@ -20,8 +20,7 @@ class HomeViewModel @Inject constructor(
     private val repository: HomeRepository
 ): ViewModel() {
 
-    val newsItems: LiveData<List<NewsItem>> = repository.newsItems
-    val alertsItems: LiveData<List<Alert>> = repository.alerts
+
 
 
     /**
@@ -36,12 +35,6 @@ class HomeViewModel @Inject constructor(
         _news.value = repository.getNews()
     }
 
-    /**
-     * DataBase insert query. All news
-     */
-    fun insertAllNewsToCache(news: List<NetworkNewsItem>) = viewModelScope.launch {
-        repository.insertAllNewsToCache(news)
-    }
 
 
     /**
@@ -54,16 +47,5 @@ class HomeViewModel @Inject constructor(
     fun getAlerts() = viewModelScope.launch {
         _alerts.value = Resource.Loading
         _alerts.value = repository.getAlerts()
-    }
-
-    /**
-     * DataBase insert query. All alerts
-     */
-    fun insertAllAlertsToCache(alerts: List<NetworkAlert>) = viewModelScope.launch {
-        repository.insertAllAlertsToCache(alerts)
-    }
-
-    fun deleteAllAlerts() = viewModelScope.launch {
-        repository.deleteAllAlerts()
     }
 }
