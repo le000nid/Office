@@ -1,12 +1,14 @@
 package com.example.officemanagerapp.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentHomeBinding
@@ -54,11 +56,15 @@ class HomeFragment : Fragment() {
     }
 
     private fun setUpAdapter() {
-        homeAdapter = HomeAdapter(HomeAdapter.OnClickListener {
-            when(it) {
-                is HomeRVItem.Alert -> TODO()
-                is HomeRVItem.HomeCard -> TODO()
-                is HomeRVItem.NewsItem -> TODO()
+        homeAdapter = HomeAdapter(HomeAdapter.OnClickListener { homeRVItem ->
+            when(homeRVItem) {
+                is HomeRVItem.Alert -> { }
+                is HomeRVItem.HomeCard -> { }
+                is HomeRVItem.NewsItem -> {
+                    Log.i("navigation", "newsItemClick")
+                    val action = HomeFragmentDirections.actionHomeFragmentToNewsDetailedFragment(homeRVItem)
+                    findNavController().navigate(action)
+                }
                 is HomeRVItem.Title -> { /* do nothing */ }
             }
         })

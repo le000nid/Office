@@ -42,6 +42,8 @@
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/activity_main.xml" value="0.23007246376811594" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_home.xml" value="0.14375" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_market.xml" value="0.1046875" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_new_detailed.xml" value="0.23052536231884058" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_news_detailed.xml" value="0.23052536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_planned.xml" value="0.1046875" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_alert.xml" value="0.1337386018237082" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_category_card.xml" value="0.23052536231884058" />

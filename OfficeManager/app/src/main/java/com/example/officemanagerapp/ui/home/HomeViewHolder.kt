@@ -21,18 +21,21 @@ sealed class HomeViewHolder(binding: ViewBinding): RecyclerView.ViewHolder(bindi
     class AlertViewHolder(private val binding: ItemAlertBinding): HomeViewHolder(binding) {
         fun bind(alert: HomeRVItem.Alert) {
             binding.alert = alert
+            binding.alertClick = onClickListener
         }
     }
 
     class HomeCardViewHolder(private val binding: ItemHomeCardBinding): HomeViewHolder(binding) {
         fun bind(homeCard: HomeRVItem.HomeCard) {
             binding.homeCard = homeCard
+            binding.cardClick = onClickListener
         }
     }
 
     class NewsItemViewHolder(private val binding: ItemNewsBinding): HomeViewHolder(binding) {
         fun bind(newsItem: HomeRVItem.NewsItem) {
             binding.newsItem = newsItem
+            binding.newsItemClick = onClickListener
         }
     }
 }
