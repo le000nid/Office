@@ -51,26 +51,6 @@ fun String.smartTruncate(length: Int): String {
     return builder.toString()
 }
 
-
-fun bindImage(imgView: ImageView, imgUrl: String?) {
-    imgUrl?.let {
-        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
-        Glide.with(imgView.context)
-            .load(imgUri)
-            .apply(
-                RequestOptions()
-                    .placeholder(R.drawable.loading_animation)
-                    .error(R.drawable.ic_broken))
-            .into(imgView)
-    }
-}
-
-fun formatDate(time: String): OffsetDateTime {
-    val res = LocalDateTime.parse(time, DateTimeFormatter.ofPattern("dd MMMM yyyy HH:mm"))
-    val offset = OffsetDateTime.now().offset
-    return res.atOffset(offset)
-}
-
 fun <A : Activity> Activity.startNewActivity(activity: Class<A>) {
     Intent(this, activity).also {
         it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

@@ -1,7 +1,6 @@
 package com.example.officemanagerapp.ui.pass
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,9 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentPassBinding
 import com.example.officemanagerapp.network.Resource
+import com.example.officemanagerapp.util.formatDateToString
 import com.example.officemanagerapp.util.hide
 import com.example.officemanagerapp.util.show
+import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.properties.Delegates.notNull
 
 @AndroidEntryPoint
 class PassFragment : Fragment() {
@@ -22,6 +24,9 @@ class PassFragment : Fragment() {
     private val viewModel: PassViewModel by viewModels()
     private lateinit var passAdapter: PassAdapter
     private lateinit var binding: FragmentPassBinding
+
+    private var date by notNull<String>()
+    private var dateLong by notNull<Long>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,10 +36,25 @@ class PassFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pass, container,false)
         binding.lifecycleOwner = viewLifecycleOwner
 
+        initVariable()
+        initClicks()
         fetchingData()
         setUpAdapter()
 
         return binding.root
+    }
+
+    private fun initClicks() {
+        binding.txDate.setOnClickListener {
+            openDatePicker()
+        }
+    }
+
+    private fun initVariable() {
+        date = viewModel.date
+        dateLong = viewModel.dateLong
+
+        binding.txDate.text = date
     }
 
     private fun setUpAdapter() {
@@ -62,5 +82,23 @@ class PassFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun openDatePicker() {
+        val today = MaterialDatePicker.todayInUtcMilliseconds()
+        val materialDatePicker: MaterialDatePicker<Long> =
+            MaterialDatePicker.Builder.datePicker()
+                .setTitleText("Select a date")
+                .setSelection(today)
+                .build()
+
+        materialDatePicker.addOnPositiveButtonClickListener {
+            dateLong = it
+            val formattedDate = formatDateToString(it)
+            date = formattedDate
+            binding.txDate.text = formattedDate
+        }
+
+        materialDatePicker.show(requireActivity().supportFragmentManager, "DATE_PICKER")
     }
 }

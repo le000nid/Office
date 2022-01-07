@@ -7,9 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.officemanagerapp.models.Pass
 import com.example.officemanagerapp.network.Resource
 import com.example.officemanagerapp.repository.PassRepository
+import com.example.officemanagerapp.util.formatDateToString
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,6 +22,11 @@ class PassViewModel @Inject constructor (
     private val _passListLiveData: MutableLiveData<Resource<List<Pass>>> = MutableLiveData()
     val passListLiveData: LiveData<Resource<List<Pass>>>
         get() = _passListLiveData
+
+    var currentTime: Date = Calendar.getInstance().time
+    val dateLong: Long = currentTime.time
+    val date: String = formatDateToString(dateLong)
+
 
     init {
         // todo(remove hardcode and add actual date)
