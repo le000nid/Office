@@ -16,6 +16,7 @@ import com.example.officemanagerapp.util.hide
 import com.example.officemanagerapp.util.show
 import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 import kotlin.properties.Delegates.notNull
 
 @AndroidEntryPoint
@@ -77,6 +78,7 @@ class PassFragment : Fragment() {
                 }
                 is Resource.Loading -> { binding.progressBar.show() }
                 is Resource.Success -> {
+                    binding.passRV.show()
                     binding.progressBar.hide()
                     passAdapter.items = result.value
                 }
@@ -97,6 +99,9 @@ class PassFragment : Fragment() {
             val formattedDate = formatDateToString(it)
             date = formattedDate
             binding.txDate.text = formattedDate
+
+            binding.passRV.hide()
+            viewModel.getPasses(Date(it))
         }
 
         materialDatePicker.show(requireActivity().supportFragmentManager, "DATE_PICKER")

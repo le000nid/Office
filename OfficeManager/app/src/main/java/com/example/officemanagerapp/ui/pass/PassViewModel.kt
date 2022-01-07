@@ -30,10 +30,10 @@ class PassViewModel @Inject constructor (
 
     init {
         // todo(remove hardcode and add actual date)
-        getPasses("12 февраля 2021")
+        getPasses(currentTime)
     }
 
-    fun getPasses(date: String) = viewModelScope.launch {
+    fun getPasses(date: Date) = viewModelScope.launch {
         _passListLiveData.value = Resource.Loading
 
         val testData = listOf(
