@@ -6,8 +6,6 @@
 
     <data>
 
-        <import type="com.example.officemanagerapp.ui.pass.AddPassViewModel.FormErrors" />
-
         <variable
             name="viewModel"
             type="com.example.officemanagerapp.ui.pass.AddPassViewModel" />

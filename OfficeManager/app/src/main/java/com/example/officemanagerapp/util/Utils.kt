@@ -18,7 +18,3 @@ fun formatDate(time: String): OffsetDateTime {
     val offset = OffsetDateTime.now().offset
     return res.atOffset(offset)
 }
-
-fun setErrorMessage(view: TextInputLayout, errorMessage: String) {
-    view.error = errorMessage
-}

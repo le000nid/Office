@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentAddPassBinding
-import com.example.officemanagerapp.util.setErrorMessage
+import com.example.officemanagerapp.ui.FieldsValidator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,36 +51,28 @@ class AddPassFragment : Fragment() {
         }
 
         binding.fabDone.setOnClickListener {
-            clearErrors()
+            if (isFormValid()) {
 
-            val formErrors = viewModel.getFormErrors()
-
-            if (formErrors.isEmpty()) {
-                // todo()
             } else {
-                if (formErrors.contains(AddPassViewModel.FormErrors.MISSING_NAME)) {
-                    setErrorMessage(binding.layoutName, "ФИО обязателен")
-                }
-                if (formErrors.contains(AddPassViewModel.FormErrors.MISSING_PHONE)) {
-                    setErrorMessage(binding.layoutPhone, "Телефон обязателен")
-                }
-                if (formErrors.contains(AddPassViewModel.FormErrors.MISSING_DATE_START)) {
-                    setErrorMessage(binding.layoutDateStart, "Дата начала обязательна")
-                }
-                if (formErrors.contains(AddPassViewModel.FormErrors.MISSING_DATE_END)) {
-                    setErrorMessage(binding.layoutDateEnd, "Дата окончания обязательна")
-                }
-
                 return@setOnClickListener
             }
-
         }
+
     }
 
-    private fun clearErrors() {
-        binding.layoutName.error = null
-        binding.layoutPhone.error = null
-        binding.layoutDateStart.error = null
-        binding.layoutDateEnd.error = null
+    private fun isFormValid(): Boolean {
+        var validationFlag = true
+
+        FieldsValidator.clearError(binding.layoutName)
+        FieldsValidator.clearError(binding.layoutPhone)
+        FieldsValidator.clearError(binding.layoutDateStart)
+        FieldsValidator.clearError(binding.layoutDateEnd)
+
+        if (!FieldsValidator.nameValidator(binding.layoutName, viewModel.txInputName.value)) { validationFlag = false }
+        if (!FieldsValidator.phoneValidator(binding.layoutPhone, viewModel.txInputPhone.value)) { validationFlag = false }
+        if (!FieldsValidator.dateStartValidator(binding.layoutDateStart, viewModel.txInputDateStart.value)) { validationFlag = false }
+        if (!FieldsValidator.dateEndValidator(binding.layoutDateEnd, viewModel.txInputDateEnd.value)) { validationFlag = false }
+
+        return validationFlag
     }
 }
