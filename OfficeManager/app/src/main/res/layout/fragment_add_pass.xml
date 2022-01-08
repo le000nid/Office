@@ -6,6 +6,11 @@
 
     <data>
 
+        <import type="com.example.officemanagerapp.ui.pass.AddPassViewModel.FormErrors" />
+
+        <variable
+            name="viewModel"
+            type="com.example.officemanagerapp.ui.pass.AddPassViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,9 +27,11 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txInputName"
                 style="@style/textInputEdit"
                 android:inputType="text"
-                android:maxLength="50" />
+                android:maxLength="50"
+                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,9 +45,11 @@
             app:layout_constraintTop_toBottomOf="@id/layoutName">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txInputPhone"
                 style="@style/textInputEdit"
                 android:inputType="phone"
-                android:maxLength="12" />
+                android:maxLength="12"
+                android:text="@{viewModel.txInputPhone}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,9 +63,11 @@
             app:layout_constraintTop_toBottomOf="@id/layoutPhone">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txInputDateStart"
                 style="@style/textInputEdit"
                 android:inputType="date"
-                android:maxLength="12" />
+                android:maxLength="12"
+                android:text="@{viewModel.txInputDateStart}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,9 +82,11 @@
             app:layout_constraintTop_toBottomOf="@id/layoutPhone">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txInputDateEnd"
                 style="@style/textInputEdit"
                 android:inputType="date"
-                android:maxLength="12" />
+                android:maxLength="12"
+                android:text="@{viewModel.txInputDateEnd}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

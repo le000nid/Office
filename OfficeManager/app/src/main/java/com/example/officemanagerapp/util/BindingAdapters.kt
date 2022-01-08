@@ -2,6 +2,7 @@ package com.example.officemanagerapp.util
 
 import android.graphics.Color
 import android.net.Uri
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
@@ -10,6 +11,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.officemanagerapp.R
+import com.google.android.material.textfield.TextInputLayout
 
 /**
  * Binding adapter used to hide the spinner once data is available
