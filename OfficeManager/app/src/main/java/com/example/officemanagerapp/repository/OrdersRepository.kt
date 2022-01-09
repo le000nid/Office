@@ -1,8 +1,6 @@
 package com.example.officemanagerapp.repository
 
-import com.example.officemanagerapp.models.MarketOrderPost
 import com.example.officemanagerapp.models.Order
-import com.example.officemanagerapp.models.PlannedOrderPost
 import com.example.officemanagerapp.network.OrderApi
 import com.example.officemanagerapp.network.SafeApiCall
 import com.example.officemanagerapp.responses.OrderUpdate
@@ -17,31 +15,31 @@ class OrdersRepository @Inject constructor(
 
 
     suspend fun putPlannedOrder(order: Order) = safeApiCall {
-        val userRate = OrderUpdate("userRate", order.userRate.toString())
+       /* val userRate = OrderUpdate("userRate", order.userRate.toString())
         val userReview = OrderUpdate("userReview", order.userReview)
         val container = listOf(userRate, userReview)
 
-        api.updatePlannedOrder(order.id, container)
+        api.updatePlannedOrder(order.id, container)*/
     }
 
-    suspend fun postPlannedOrder(plannedOrder: PlannedOrderPost) = safeApiCall {
-        api.postPlannedOrder(plannedOrder)
+    suspend fun postPlannedOrder(order: Order) = safeApiCall {
+        api.postPlannedOrder(order)
     }
 
 
     suspend fun getMarketOrders() = safeApiCall { api.getMarketOrders() }
 
     suspend fun putMarketOrder(order: Order) = safeApiCall {
-        val userRate = OrderUpdate("userRate", order.userRate.toString())
-        val userReview = OrderUpdate("userReview", order.userReview)
-        val container = listOf(userRate, userReview)
+        //val userRate = OrderUpdate("userRate", order.userRate.toString())
+        //val userReview = OrderUpdate("userReview", order.userReview)
+        //val container = listOf(userRate, userReview)
 
-        api.updateMarketOrder(order.id, container)
+        //api.updateMarketOrder(order.id, container)
     }
 
-    suspend fun postMarketOrder(marketOrder: MarketOrderPost) = safeApiCall {
+    /*suspend fun postMarketOrder(marketOrder: MarketOrderPost) = safeApiCall {
         api.postMarketOrder(marketOrder)
-    }
+    }*/
 
     suspend fun getWorkerCalendarById(workerId: Int) = safeApiCall {
         api.getWorkerCalendarById(workerId)

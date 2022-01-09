@@ -12,7 +12,6 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentWorkerInfoBinding
-import com.example.officemanagerapp.models.MarketOrderPost
 import com.example.officemanagerapp.util.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -74,9 +73,9 @@ class WorkerInfoFragment : Fragment() {
 
 
         binding.btnOffer.setOnClickListener {
-            val marketOrderPost = MarketOrderPost(args.categoryId, workerId = viewModel.worker.id)
+            /*val marketOrderPost = MarketOrderPost(args.categoryId, workerId = viewModel.worker.id)
             val action = WorkerInfoFragmentDirections.actionWorkerInfoFragmentToOrderInfoFragment(appBarTitle = args.appBarTitle, marketOrderPost = marketOrderPost)
-            findNavController().navigate(action)
+            findNavController().navigate(action)*/
         }
 
         return binding.root

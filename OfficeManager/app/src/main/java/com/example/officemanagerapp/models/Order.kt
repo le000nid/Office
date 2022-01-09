@@ -1,44 +1,17 @@
 package com.example.officemanagerapp.models
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import java.time.OffsetDateTime
-import java.time.format.DateTimeFormatter
 
 @Parcelize
-data class Order(
-    val id: Int,
-    val title: String,
-    val date: String,
-    val time: String,
-    val userRate: Int,
-    val userReview: String,
-    val status: Int,
-    val workerImg: String,
-    val workerName: String,
-    val workerRate: Double,
-    val workerInfo: String
-): Parcelable {
-    val shortDesc: String
-        get() = "$date | $time"
-}
-
-
-data class NetworkOrder(
-    val id: Int,
-    val title: String?,
-    @SerializedName("date")
-    val offsetDate: OffsetDateTime,
-    val time: String?,
-    val userRate: Int,
-    val userReview: String?,
-    val status: Int,
-    val workerImg: String?,
-    val workerName: String?,
-    val workerRate: Double,
-    val workerInfo: String?
-) {
-    val date: String
-        get() = offsetDate.format(DateTimeFormatter.ofPattern("mm.dd.yyyy"))
-}
+data class Order (
+    val fullName: String? = null,
+    val phone: String? = null,
+    val comment: String? = null,
+    val address: String? = null,
+    val floor: String? = null,
+    val room: String? = null,
+    val companyId: Int? = null,
+    val categoryId: Int
+) : Parcelable

@@ -8,8 +8,8 @@
             name="photo"
             type="com.example.officemanagerapp.models.Photo" />
         <variable
-            name="removeClick"
-            type="com.example.officemanagerapp.ui.services.orderInfo.PhotoRemoveClick" />
+            name="photoClick"
+            type="com.example.officemanagerapp.ui.services.orderInfo.PhotoAdapter.PhotoRemoveClick" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,7 +46,7 @@
             android:focusable="true"
             android:layout_marginTop="-8dp"
             android:layout_marginEnd="-8dp"
-            android:onClick="@{() -> removeClick.onClick(photo)}"
+            android:onClick="@{() -> photoClick.onClick(photo)}"
             app:goneIfUriNull="@{photo.uri}"
             app:layout_constraintEnd_toEndOf="@+id/card1"
             app:layout_constraintTop_toTopOf="@+id/card1"

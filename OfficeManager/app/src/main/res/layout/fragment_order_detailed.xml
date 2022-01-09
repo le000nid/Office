@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="order"
-            type="com.example.officemanagerapp.models.Order" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,7 +31,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_tiny"
-            android:text="@{order.title}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txLabelOrderType"
@@ -57,7 +53,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_tiny"
-            android:text="@{order.date}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txLabelDate"
@@ -80,7 +75,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_tiny"
-            android:text="@{order.time}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txLabelTime"
@@ -103,7 +97,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_normal"
-            android:text="@{order.workerName}"
             app:layout_constraintBottom_toBottomOf="@+id/cardView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardView"
@@ -144,7 +137,6 @@
             android:layout_marginTop="@dimen/spacing_tiny"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txLabelWorkerRate"
-            app:setRating="@{order.workerRate}"
             tools:src="@drawable/ic_rate_0"/>
 
         <TextView
@@ -164,7 +156,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_tiny"
-            android:text="@{order.workerInfo}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txLabelMore"
@@ -198,7 +189,6 @@
             android:layout_marginTop="@dimen/spacing_tiny"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txLabelUserRate"
-            app:setRating="@{order.userRate}"
             tools:src="@drawable/ic_rate_0"/>
 
         <TextView
@@ -218,7 +208,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_tiny"
-            android:text="@{order.userReview}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txLabelReview"
@@ -229,7 +218,6 @@
             android:id="@+id/group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:visibleIfReviewed="@{order.userRate}"
             app:constraint_referenced_ids="txLabelUserRate, imUserRate, txLabelReview, txReview, separateLine" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

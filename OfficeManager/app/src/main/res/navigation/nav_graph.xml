@@ -54,7 +54,11 @@
         android:id="@+id/plannedCategoriesFragment"
         android:name="com.example.officemanagerapp.ui.services.planned.category.PlannedCategoriesFragment"
         android:label="Выберите категорию"
-        tools:layout="@layout/fragment_planned_categories"/>
+        tools:layout="@layout/fragment_planned_categories">
+        <action
+            android:id="@+id/action_plannedCategoriesFragment_to_orderInfoFragment"
+            app:destination="@id/orderInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/orderInfoFragment"
         android:name="com.example.officemanagerapp.ui.services.orderInfo.PlannedInfoFragment"
@@ -64,15 +68,8 @@
             android:name="appBarTitle"
             app:argType="string" />
         <argument
-            android:name="plannedOrderPost"
-            app:argType="com.example.officemanagerapp.models.PlannedOrderPost"
-            app:nullable="true"
-            android:defaultValue="@null" />
-        <argument
-            android:name="marketOrderPost"
-            app:argType="com.example.officemanagerapp.models.MarketOrderPost"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            android:name="order"
+            app:argType="com.example.officemanagerapp.models.Order" />
     </fragment>
     <fragment
         android:id="@+id/orderDetailedFragment"

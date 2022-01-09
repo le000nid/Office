@@ -32,7 +32,9 @@ class PhotoDiffCallback(
 
 }
 
-class PhotoAdapter(val callback: PhotoRemoveClick) : RecyclerView.Adapter<PhotoAdapter.PhotosViewHolder>() {
+class PhotoAdapter(
+    val onClickListener: PhotoRemoveClick
+) : RecyclerView.Adapter<PhotoAdapter.PhotosViewHolder>() {
 
     var photos: List<Photo> = emptyList()
         set(newValue) {
@@ -43,27 +45,24 @@ class PhotoAdapter(val callback: PhotoRemoveClick) : RecyclerView.Adapter<PhotoA
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotosViewHolder {
-        val withDataBinding: ItemPhotoBinding = DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context),
-            PhotosViewHolder.LAYOUT,
-            parent,
-            false)
-        return PhotosViewHolder(withDataBinding)
+        val binding: ItemPhotoBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_photo, parent, false)
+        return PhotosViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PhotosViewHolder, position: Int) {
-        holder.viewDataBinding.also {
-            it.photo = photos[position]
-            it.removeClick = callback
-        }
+        holder.bind(photos[position])
     }
 
-    class PhotosViewHolder(val viewDataBinding: ItemPhotoBinding) : RecyclerView.ViewHolder(viewDataBinding.root) {
-        companion object {
-            @LayoutRes
-            val LAYOUT = R.layout.item_photo
+    inner class PhotosViewHolder(val binding: ItemPhotoBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(photo: Photo) {
+            binding.photo = photo
+            binding.photoClick = onClickListener
         }
     }
 
     override fun getItemCount(): Int = photos.size
+
+    class PhotoRemoveClick(val block: (Photo) -> Unit) {
+        fun onClick(photo: Photo) = block(photo)
+    }
 }

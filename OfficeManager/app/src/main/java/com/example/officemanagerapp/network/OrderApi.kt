@@ -9,10 +9,10 @@ interface OrderApi {
     // ---------- Planned orders ----------
 
     @POST("/planned-orders")
-    suspend fun postPlannedOrder(@Body plannedOrder: PlannedOrderPost): PlannedOrderResponse
+    suspend fun postPlannedOrder(@Body order: Order): PlannedOrderResponse
 
     @GET("/planned-orders")
-    suspend fun getPlannedOrders(): List<NetworkOrder>
+    suspend fun getPlannedOrders(): List<Order>
 
     @PUT("/planned-orders/{id}")
     suspend fun updatePlannedOrder(
@@ -29,10 +29,10 @@ interface OrderApi {
     // ---------- Market orders ----------
 
     @POST("/marked-orders")
-    suspend fun postMarketOrder(@Body plannedOrder: MarketOrderPost): MarketOrderResponse
+    suspend fun postMarketOrder(@Body plannedOrder: Order): MarketOrderResponse
 
     @GET("/marked-orders")
-    suspend fun getMarketOrders(): List<NetworkOrder>
+    suspend fun getMarketOrders(): List<Order>
 
     @PUT("/marked-orders/{id}")
     suspend fun updateMarketOrder(

@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentPlannedCategoriesBinding
+import com.example.officemanagerapp.models.Order
 import com.example.officemanagerapp.network.Resource
 import com.example.officemanagerapp.util.hide
 import com.example.officemanagerapp.util.show
@@ -39,7 +41,9 @@ class PlannedCategoriesFragment : Fragment() {
 
     private fun setUpAdapter() {
         categoriesAdapter = PlannedCategoriesAdapter(PlannedCategoriesAdapter.OnClickListener {
-            // todo(made action onClick)
+            val order = Order(categoryId = it.categoryId)
+            val action = PlannedCategoriesFragmentDirections.actionPlannedCategoriesFragmentToOrderInfoFragment(it.title, order)
+            findNavController().navigate(action)
         })
 
         binding.categoriesRv.apply {
