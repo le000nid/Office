@@ -11,8 +11,9 @@ import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentOrdersListBinding
 import com.example.officemanagerapp.util.ORDER_POST_REQUEST
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OrdersListFragment : Fragment() {
 
     private lateinit var binding: FragmentOrdersListBinding

@@ -12,7 +12,7 @@ interface OrderApi {
     suspend fun postPlannedOrder(@Body order: Order): Order
 
     @GET("/planned-orders")
-    suspend fun getPlannedOrders(): List<Order>
+    suspend fun getPlannedOrders(): List<OrderRVItem.pOrder>
 
     @PUT("/planned-orders/{id}")
     suspend fun updatePlannedOrder(
@@ -32,7 +32,7 @@ interface OrderApi {
     suspend fun postMarketOrder(@Body plannedOrder: Order): Order
 
     @GET("/marked-orders")
-    suspend fun getMarketOrders(): List<Order>
+    suspend fun getMarketOrders(): List<OrderRVItem.mOrder>
 
     @PUT("/marked-orders/{id}")
     suspend fun updateMarketOrder(
