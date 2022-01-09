@@ -20,7 +20,7 @@ interface OrderApi {
         @Body update: List<OrderUpdate>) : Boolean
 
     @GET("/planned-categories")
-    suspend fun getPlannedCategories(): List<CategoriesList>
+    suspend fun getPlannedCategories(): List<Category>
 
     @GET("/calendar")
     suspend fun getWorkerCalendar(@Query("subcategory") subcategoryId: Int): List<WorkerMonth>

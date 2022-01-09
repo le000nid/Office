@@ -29,7 +29,6 @@ class PassViewModel @Inject constructor (
 
 
     init {
-        // todo(remove hardcode and add actual date)
         getPasses(currentTime)
     }
 

@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_homeFragment_to_newsDetailedFragment"
             app:destination="@id/newsDetailedFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_servicesFragment"
-            app:destination="@id/servicesFragment" />
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
@@ -34,21 +31,6 @@
         android:name="com.example.officemanagerapp.ui.payment.PaymentFragment"
         android:label="Оплата"
         tools:layout="@layout/fragment_payment" />
-    <fragment
-        android:id="@+id/servicesFragment"
-        android:name="com.example.officemanagerapp.ui.services.ServicesFragment"
-        android:label="Услуги"
-        tools:layout="@layout/fragment_services">
-        <action
-            android:id="@+id/action_servicesFragment_to_plannedCategoriesFragment"
-            app:destination="@id/plannedCategoriesFragment" />
-        <action
-            android:id="@+id/action_servicesFragment_to_orderDetailedFragment"
-            app:destination="@id/orderDetailedFragment" />
-        <action
-            android:id="@+id/action_servicesFragment_to_marketCategoriesFragment"
-            app:destination="@id/marketCategoriesFragment" />
-    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.officemanagerapp.ui.profile.ProfileFragment"
@@ -69,34 +51,10 @@
             app:argType="com.example.officemanagerapp.models.HomeRVItem$NewsItem" />
     </fragment>
     <fragment
-        android:id="@+id/plannedFragment"
-        android:name="com.example.officemanagerapp.ui.services.planned.PlannedFragment"
-        android:label="fragment_planned"
-        tools:layout="@layout/fragment_planned" />
-    <fragment
         android:id="@+id/plannedCategoriesFragment"
         android:name="com.example.officemanagerapp.ui.services.planned.category.PlannedCategoriesFragment"
         android:label="Выберите категорию"
-        tools:layout="@layout/fragment_planned_categories">
-        <action
-            android:id="@+id/action_plannedCategoriesFragment_to_plannedSubcategoryFragment"
-            app:destination="@id/plannedSubcategoryFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/plannedSubcategoryFragment"
-        android:name="com.example.officemanagerapp.ui.services.planned.subcategory.PlannedSubcategoryFragment"
-        android:label="{categoryName}"
-        tools:layout="@layout/fragment_planned_subcategory">
-        <argument
-            android:name="category"
-            app:argType="com.example.officemanagerapp.models.CategoriesList" />
-        <argument
-            android:name="categoryName"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_plannedSubcategoryFragment_to_plannedInfoFragment"
-            app:destination="@id/orderInfoFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_planned_categories"/>
     <fragment
         android:id="@+id/orderInfoFragment"
         android:name="com.example.officemanagerapp.ui.services.orderInfo.PlannedInfoFragment"
@@ -110,52 +68,11 @@
             app:argType="com.example.officemanagerapp.models.PlannedOrderPost"
             app:nullable="true"
             android:defaultValue="@null" />
-        <action
-            android:id="@+id/action_plannedInfoFragment_to_plannedDateFragment"
-            app:destination="@id/plannedDateFragment" />
         <argument
             android:name="marketOrderPost"
             app:argType="com.example.officemanagerapp.models.MarketOrderPost"
             app:nullable="true"
             android:defaultValue="@null" />
-    </fragment>
-    <fragment
-        android:id="@+id/plannedDateFragment"
-        android:name="com.example.officemanagerapp.ui.services.ordercalendar.PlannedDateFragment"
-        android:label="{appBarTitle}"
-        tools:layout="@layout/fragment_order_calendar">
-        <argument
-            android:name="appBarTitle"
-            app:argType="string" />
-        <argument
-            android:name="plannedOrderPost"
-            app:argType="com.example.officemanagerapp.models.PlannedOrderPost"
-            app:nullable="true"
-            android:defaultValue="@null" />
-        <action
-            android:id="@+id/action_plannedDateFragment_to_successFragment"
-            app:destination="@id/successFragment"
-            app:popUpTo="@id/successFragment"
-            app:popUpToInclusive="false" />
-        <argument
-            android:name="marketOrderPost"
-            app:argType="com.example.officemanagerapp.models.MarketOrderPost"
-            app:nullable="true"
-            android:defaultValue="@null" />
-    </fragment>
-    <fragment
-        android:id="@+id/successFragment"
-        android:name="com.example.officemanagerapp.ui.services.SuccessFragment"
-        android:label="Успех"
-        tools:layout="@layout/fragment_success">
-        <action
-            android:id="@+id/action_successFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/homeFragment" />
-        <action
-            android:id="@+id/action_successFragment_to_servicesFragment"
-            app:destination="@id/servicesFragment"
-            app:popUpTo="@id/servicesFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderDetailedFragment"
@@ -197,7 +114,7 @@
             app:argType="string" />
         <argument
             android:name="category"
-            app:argType="com.example.officemanagerapp.models.CategoriesList" />
+            app:argType="com.example.officemanagerapp.models.Category" />
         <action
             android:id="@+id/action_marketWorkersFragment_to_workerInfoFragment"
             app:destination="@id/workerInfoFragment" />

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.ItemCategorySectionBinding
-import com.example.officemanagerapp.models.CategoriesList
+import com.example.officemanagerapp.models.Category
 import com.example.officemanagerapp.responses.SectionCategories
 
 class MarketCategoriesAdapter(val parentFragment: Fragment) : RecyclerView.Adapter<MarketCategoriesAdapter.ViewHolder>() {
@@ -48,7 +48,7 @@ class MarketCategoriesAdapter(val parentFragment: Fragment) : RecyclerView.Adapt
                 adapter = sectionAdapter
             }
 
-            sectionAdapter.categoriesLists = sectionedCategories[position].categories
+            sectionAdapter.categories = sectionedCategories[position].categories
         }
     }
 
@@ -60,6 +60,6 @@ class MarketCategoriesAdapter(val parentFragment: Fragment) : RecyclerView.Adapt
     }
 }
 
-class MarketCategoryItemClick(val block: (CategoriesList) -> Unit) {
-    fun onClick(CategoriesList: CategoriesList) = block(CategoriesList)
+class MarketCategoryItemClick(val block: (Category) -> Unit) {
+    fun onClick(Category: Category) = block(Category)
 }

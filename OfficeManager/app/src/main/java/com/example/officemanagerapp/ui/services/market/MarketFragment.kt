@@ -18,7 +18,6 @@ import com.example.officemanagerapp.databinding.DialogRateOrderBinding
 import com.example.officemanagerapp.databinding.FragmentMarketBinding
 import com.example.officemanagerapp.models.Order
 import com.example.officemanagerapp.network.Resource
-import com.example.officemanagerapp.ui.services.ServicesFragmentDirections
 import com.example.officemanagerapp.ui.services.base.OrderClick
 import com.example.officemanagerapp.ui.services.base.ReviewClick
 import com.example.officemanagerapp.ui.services.base.ActiveOrdersAdapter
@@ -60,13 +59,11 @@ class MarketFragment : Fragment() {
 
 
         activeAdapter = ActiveOrdersAdapter(OrderClick {
-            val action = ServicesFragmentDirections.actionServicesFragmentToOrderDetailedFragment(it.title, it)
-            findNavController().navigate(action)
+
         })
 
         historyAdapter = HistoryOrdersAdapter(OrderClick {
-            val action = ServicesFragmentDirections.actionServicesFragmentToOrderDetailedFragment(it.title, it)
-            findNavController().navigate(action)
+
         }, ReviewClick {
             showCustomInputAlertDialog(it)
         })
@@ -90,8 +87,7 @@ class MarketFragment : Fragment() {
         }
 
         binding.actionAddOrder.setOnClickListener {
-            val action = ServicesFragmentDirections.actionServicesFragmentToMarketCategoriesFragment()
-            findNavController().navigate(action)
+
         }
 
 

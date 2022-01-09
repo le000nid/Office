@@ -73,13 +73,13 @@ class PlannedInfoFragment : Fragment() {
             if (args.plannedOrderPost != null) {
                 var orderPost = args.plannedOrderPost
                 orderPost = orderPost!!.copy(comment = infoViewModel.comment)
-                val action = PlannedInfoFragmentDirections.actionPlannedInfoFragmentToPlannedDateFragment(args.appBarTitle, plannedOrderPost = orderPost)
-                findNavController().navigate(action)
+                //val action = PlannedInfoFragmentDirections.actionPlannedInfoFragmentToPlannedDateFragment(args.appBarTitle, plannedOrderPost = orderPost)
+                //findNavController().navigate(action)
             } else if (args.marketOrderPost != null) {
                 var orderPost = args.marketOrderPost
                 orderPost = orderPost!!.copy(comment = infoViewModel.comment)
-                val action = PlannedInfoFragmentDirections.actionPlannedInfoFragmentToPlannedDateFragment(args.appBarTitle, marketOrderPost = orderPost)
-                findNavController().navigate(action)
+                //val action = PlannedInfoFragmentDirections.actionPlannedInfoFragmentToPlannedDateFragment(args.appBarTitle, marketOrderPost = orderPost)
+                //findNavController().navigate(action)
             }
         }
 

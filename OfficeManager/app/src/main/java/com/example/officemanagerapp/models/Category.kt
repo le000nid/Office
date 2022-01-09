@@ -5,10 +5,8 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class CategoriesList (
+data class Category (
     val title: String,
     val categoryId: Int,
-    @SerializedName("iconUrl")
-    val drawableUrl: String,
-    val subcategory: List<CategoriesList>? = null
+    @SerializedName("iconUrl") val drawableUrl: String,
 ): Parcelable

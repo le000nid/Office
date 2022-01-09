@@ -7,64 +7,61 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentPlannedCategoriesBinding
-import com.example.officemanagerapp.models.CategoriesList
-import com.example.officemanagerapp.util.visible
+import com.example.officemanagerapp.network.Resource
+import com.example.officemanagerapp.util.hide
+import com.example.officemanagerapp.util.show
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PlannedCategoriesFragment : Fragment() {
 
-    private var plannedCategoriesAdapter: PlannedCategoriesAdapter? = null
-    private val viewModel: CategoriesPlannedViewModel by viewModels()
+    private val viewModel: PlannedCategoriesViewModel by viewModels()
+    private lateinit var categoriesAdapter: PlannedCategoriesAdapter
+    private lateinit var binding: FragmentPlannedCategoriesBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentPlannedCategoriesBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_planned_categories, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_planned_categories, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
-        binding.progressBar.visible(false)
 
-
-        // TODO(Uncomment when you will receive categories from server)
-        /*viewModel.getPlannedCategories()
-
-        viewModel.plannedCategories.observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Success -> {
-                    binding.progressBar.visible(false)
-                    plannedCategoriesAdapter?.categoriesLists = it.value
-                }
-                is Resource.Loading -> {
-                    binding.progressBar.visible(true)
-                }
-                is Resource.Failure -> handleApiError(it) { }
-            }
-        }*/
-
-        plannedCategoriesAdapter = PlannedCategoriesAdapter(PlannedCategoriesClick { category ->
-            val action = PlannedCategoriesFragmentDirections.actionPlannedCategoriesFragmentToPlannedSubcategoryFragment(category, category.title)
-            findNavController().navigate(action)
-        })
-
-        binding.root.findViewById<RecyclerView>(R.id.categories_rv).apply {
-            layoutManager = GridLayoutManager(activity, 4)
-            adapter = plannedCategoriesAdapter
-        }
-
-        // TODO(HARDCODE remove when REST is ready)
-        plannedCategoriesAdapter?.categoriesLists = viewModel.categoriesLists
+        fetchingData()
+        setUpAdapter()
 
         return binding.root
     }
-}
 
-class PlannedCategoriesClick(val block: (CategoriesList) -> Unit) {
-    fun onClick(categoriesList: CategoriesList) = block(categoriesList)
+    private fun setUpAdapter() {
+        categoriesAdapter = PlannedCategoriesAdapter(PlannedCategoriesAdapter.OnClickListener {
+            // todo(made action onClick)
+        })
+
+        binding.categoriesRv.apply {
+            setHasFixedSize(true)
+            layoutManager = GridLayoutManager(requireContext(), 4, GridLayoutManager.VERTICAL, false)
+            adapter = categoriesAdapter
+        }
+    }
+
+    private fun fetchingData() {
+        viewModel.plannedCategories.observe(viewLifecycleOwner) { result ->
+            when(result) {
+                is Resource.Failure -> {
+                    binding.progressBar.hide()
+                }
+                is Resource.Loading -> { binding.progressBar.show() }
+                is Resource.Success -> {
+                    binding.categoriesRv.show()
+                    binding.progressBar.hide()
+                    categoriesAdapter.items = result.value
+                }
+            }
+        }
+    }
 }

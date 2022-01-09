@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_home"/>
 
     <item
-        android:id="@+id/orderMaster"
+        android:id="@+id/plannedCategoriesFragment"
         android:title="Заказать мастера"
         android:icon="@drawable/ic_home"/>
 

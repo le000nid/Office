@@ -7,16 +7,17 @@
 
         <variable
             name="category"
-            type="com.example.officemanagerapp.models.CategoriesList" />
+            type="com.example.officemanagerapp.models.Category" />
 
         <variable
             name="click"
-            type="com.example.officemanagerapp.ui.services.planned.category.PlannedCategoriesClick" />
+            type="com.example.officemanagerapp.ui.services.planned.category.PlannedCategoriesAdapter.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> click.onClick(category)}">
 
 
         <androidx.cardview.widget.CardView
@@ -25,7 +26,6 @@
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_little"
-            android:onClick="@{() -> click.onClick(category)}"
             app:layout_constraintDimensionRatio="H,1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_tiny"
             android:gravity="center"
-            android:onClick="@{() -> click.onClick(category)}"
             android:text="@{category.title}"
             android:textColor="@color/primaryTextColor"
             app:layout_constraintEnd_toEndOf="@+id/card1"

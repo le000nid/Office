@@ -8,13 +8,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.ItemSectionedCategoryCardBinding
-import com.example.officemanagerapp.models.CategoriesList
+import com.example.officemanagerapp.models.Category
 
 
 class MarketCategoriesSectionedAdapter(val callback: MarketCategoryItemClick) :
     RecyclerView.Adapter<MarketCategoriesSectionedAdapter.ViewHolder>() {
 
-    var categoriesLists: List<CategoriesList> = emptyList()
+    var categories: List<Category> = emptyList()
         @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
@@ -30,11 +30,11 @@ class MarketCategoriesSectionedAdapter(val callback: MarketCategoryItemClick) :
         return ViewHolder(withDataBinding)
     }
 
-    override fun getItemCount() = categoriesLists.size
+    override fun getItemCount() = categories.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            it.category = categoriesLists[position]
+            it.category = categories[position]
             it.click = callback
         }
     }

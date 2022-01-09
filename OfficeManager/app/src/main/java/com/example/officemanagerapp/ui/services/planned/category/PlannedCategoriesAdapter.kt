@@ -3,17 +3,18 @@ package com.example.officemanagerapp.ui.services.planned.category
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.ItemCategoryCardBinding
-import com.example.officemanagerapp.models.CategoriesList
+import com.example.officemanagerapp.models.Category
 
 
-class PlannedCategoriesAdapter(val callback: PlannedCategoriesClick) : RecyclerView.Adapter<PlannedCategoriesAdapter.CategoriesViewHolder>() {
+class PlannedCategoriesAdapter(
+    val onClickListener: OnClickListener?
+) : RecyclerView.Adapter<PlannedCategoriesAdapter.CategoriesViewHolder>() {
 
-    var categoriesLists: List<CategoriesList> = emptyList()
+    var items: List<Category> = emptyList()
         @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
@@ -21,27 +22,24 @@ class PlannedCategoriesAdapter(val callback: PlannedCategoriesClick) : RecyclerV
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
-        val withDataBinding: ItemCategoryCardBinding = DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context),
-            CategoriesViewHolder.LAYOUT,
-            parent,
-            false)
-        return CategoriesViewHolder(withDataBinding)
+        val binding: ItemCategoryCardBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_category_card, parent, false)
+        return CategoriesViewHolder(binding)
     }
-
-    override fun getItemCount() = categoriesLists.size
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
-        holder.viewDataBinding.also {
-            it.category = categoriesLists[position]
-            it.click = callback
+        holder.bind(items[position])
+    }
+
+    override fun getItemCount(): Int = items.size
+
+    inner class CategoriesViewHolder(val binding: ItemCategoryCardBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bind(category: Category) {
+            binding.category = category
+            binding.click = onClickListener
         }
     }
 
-    class CategoriesViewHolder(val viewDataBinding: ItemCategoryCardBinding) : RecyclerView.ViewHolder(viewDataBinding.root) {
-        companion object {
-            @LayoutRes
-            val LAYOUT = R.layout.item_category_card
-        }
+    class OnClickListener(val clickListener: (Category: Category) -> Unit) {
+        fun onClick(category: Category) = clickListener(category)
     }
 }
