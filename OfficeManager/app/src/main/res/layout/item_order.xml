@@ -6,10 +6,6 @@
     <data>
 
         <variable
-            name="order"
-            type="com.example.officemanagerapp.models.Order" />
-
-        <variable
             name="orderClick"
             type="com.example.officemanagerapp.ui.services.base.OrderClick" />
 
@@ -25,7 +21,6 @@
         android:layout_marginStart="@dimen/spacing_normal"
         android:layout_marginTop="@dimen/spacing_normal"
         android:layout_marginEnd="@dimen/spacing_normal"
-        android:onClick="@{() -> orderClick.onClick(order)}"
         app:contentPaddingBottom="@dimen/spacing_big"
         app:contentPaddingLeft="@dimen/spacing_normal"
         app:contentPaddingRight="@dimen/spacing_normal"
@@ -41,7 +36,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_little"
-                android:text="@{order.shortDesc}"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_order_title"
@@ -52,7 +46,6 @@
                 style="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{order.title}"
                 app:layout_constraintEnd_toStartOf="@+id/imageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -67,8 +60,7 @@
                 android:text="Завершен"
                 android:textColor="@color/secondaryColor"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_order_date"
-                app:visibleIfFinished="@{order.status}" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_order_date" />
 
             <View
                 android:id="@+id/view2"
@@ -78,8 +70,7 @@
                 android:background="@color/grayMiddle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_is_finished"
-                app:visibleIfFinished="@{order.status}" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_is_finished" />
 
 
             <ImageView
@@ -97,14 +88,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_little"
                 android:backgroundTint="@color/secondaryColor"
-                android:onClick="@{() -> reviewClick.onReviewClick(order)}"
                 android:text="Оставить отзыв"
                 android:textColor="@color/secondaryTextColor"
                 android:visibility="gone"
-                app:goneIfRateNot0="@{order.userRate}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view2"
-                app:state="@{order.status}" />
+                />
 
 
             <ImageView
@@ -112,10 +101,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_normal"
-                app:goneIfRate0="@{order.userRate}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view2"
-                app:setRating="@{order.userRate}" />
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

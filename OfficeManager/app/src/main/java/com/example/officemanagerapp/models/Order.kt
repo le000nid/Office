@@ -13,5 +13,5 @@ data class Order (
     val floor: String? = null,
     val room: String? = null,
     val companyId: Int? = null,
-    val categoryId: Int
+    val categoryId: Int?
 ) : Parcelable

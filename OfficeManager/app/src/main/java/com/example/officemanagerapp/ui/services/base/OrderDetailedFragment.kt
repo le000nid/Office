@@ -21,7 +21,7 @@ class OrderDetailedFragment : Fragment(R.layout.fragment_order_detailed) {
     ): View? {
         val binding: FragmentOrderDetailedBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_order_detailed, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
-        binding.order = args.order
+        //binding.order = args.order
 
         return binding.root
     }

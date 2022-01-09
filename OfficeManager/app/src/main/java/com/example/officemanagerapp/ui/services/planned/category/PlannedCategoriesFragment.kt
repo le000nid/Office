@@ -1,6 +1,7 @@
 package com.example.officemanagerapp.ui.services.planned.category
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,6 +42,7 @@ class PlannedCategoriesFragment : Fragment() {
 
     private fun setUpAdapter() {
         categoriesAdapter = PlannedCategoriesAdapter(PlannedCategoriesAdapter.OnClickListener {
+            Log.i("Navigation", "called")
             val order = Order(categoryId = it.categoryId)
             val action = PlannedCategoriesFragmentDirections.actionPlannedCategoriesFragmentToOrderInfoFragment(it.title, order)
             findNavController().navigate(action)

@@ -47,7 +47,7 @@ class HistoryOrdersAdapter(val callback: OrderClick, val reviewClicked: ReviewCl
      */
     override fun onBindViewHolder(holder: HistoryPlannedOrdersViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            it.order = historyOrders[position]
+            //it.order = historyOrders[position]
             it.orderClick = callback
             it.reviewClick = reviewClicked
         }

@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.officemanagerapp.models.NetworkOrder
 import com.example.officemanagerapp.models.Order
 import com.example.officemanagerapp.network.Resource
 import com.example.officemanagerapp.repository.OrdersRepository
@@ -21,8 +20,8 @@ class MarketViewModel @Inject constructor(
     /**
      * Network get request. All market orders
      */
-    private val _marketOrders: MutableLiveData<Resource<List<NetworkOrder>>> = MutableLiveData()
-    val marketOrders: LiveData<Resource<List<NetworkOrder>>>
+    private val _marketOrders: MutableLiveData<Resource<List<Order>>> = MutableLiveData()
+    val marketOrders: LiveData<Resource<List<Order>>>
         get() = _marketOrders
 
     fun getMarketOrders() = viewModelScope.launch {
@@ -37,6 +36,6 @@ class MarketViewModel @Inject constructor(
 
     fun putMarketOrder(order: Order) = viewModelScope.launch {
         _marketPutResponse.value = Resource.Loading
-        _marketPutResponse.value = repository.putMarketOrder(order)
+        //_marketPutResponse.value = repository.putMarketOrder(order)
     }
 }

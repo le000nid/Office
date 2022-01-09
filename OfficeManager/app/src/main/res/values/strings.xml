@@ -6,4 +6,12 @@
     <string name="pass_id">Пропуск №%d</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phone">Номер телефона</string>
+    <string name="fullName">ФИО</string>
+    <string name="dateStart">Действует с</string>
+    <string name="dateEnd">Действует до</string>
+    <string name="comment">Опишите детали заказа</string>
+    <string name="address">Адрес</string>
+    <string name="room">Кабинет</string>
+    <string name="floor">этаж</string>
 </resources>

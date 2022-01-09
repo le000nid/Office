@@ -9,7 +9,7 @@
             type="com.example.officemanagerapp.models.Photo" />
         <variable
             name="photoClick"
-            type="com.example.officemanagerapp.ui.services.orderInfo.PhotoAdapter.PhotoRemoveClick" />
+            type="com.example.officemanagerapp.ui.services.order_info.PhotoAdapter.PhotoRemoveClick" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

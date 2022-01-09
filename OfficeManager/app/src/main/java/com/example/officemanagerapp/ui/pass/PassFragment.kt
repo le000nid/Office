@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentPassBinding
 import com.example.officemanagerapp.network.Resource
+import com.example.officemanagerapp.util.PASS_POST_REQUEST
 import com.example.officemanagerapp.util.formatDateToString
 import com.example.officemanagerapp.util.hide
 import com.example.officemanagerapp.util.show
@@ -50,7 +51,7 @@ class PassFragment : Fragment() {
     }
 
     private fun initListeners() {
-        setFragmentResultListener("post_request") { _, _ ->
+        setFragmentResultListener(PASS_POST_REQUEST) { _, _ ->
             Snackbar.make(requireView(), "Пропуск успешно выписан", Snackbar.LENGTH_SHORT).show()
         }
     }

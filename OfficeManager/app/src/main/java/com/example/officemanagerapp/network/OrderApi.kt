@@ -9,7 +9,7 @@ interface OrderApi {
     // ---------- Planned orders ----------
 
     @POST("/planned-orders")
-    suspend fun postPlannedOrder(@Body order: Order): PlannedOrderResponse
+    suspend fun postPlannedOrder(@Body order: Order): Order
 
     @GET("/planned-orders")
     suspend fun getPlannedOrders(): List<Order>
@@ -29,7 +29,7 @@ interface OrderApi {
     // ---------- Market orders ----------
 
     @POST("/marked-orders")
-    suspend fun postMarketOrder(@Body plannedOrder: Order): MarketOrderResponse
+    suspend fun postMarketOrder(@Body plannedOrder: Order): Order
 
     @GET("/marked-orders")
     suspend fun getMarketOrders(): List<Order>

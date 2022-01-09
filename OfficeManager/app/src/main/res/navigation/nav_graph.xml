@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/orderInfoFragment"
-        android:name="com.example.officemanagerapp.ui.services.orderInfo.PlannedInfoFragment"
+        android:name="com.example.officemanagerapp.ui.services.order_info.OrderInfoFragment"
         android:label="{appBarTitle}"
         tools:layout="@layout/fragment_order_info">
         <argument
@@ -70,6 +70,10 @@
         <argument
             android:name="order"
             app:argType="com.example.officemanagerapp.models.Order" />
+        <action
+            android:id="@+id/action_orderInfoFragment_to_ordersListFragment"
+            app:destination="@id/ordersListFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderDetailedFragment"
@@ -153,5 +157,10 @@
         android:name="com.example.officemanagerapp.ui.pass.AddPassFragment"
         android:label="Выписать временный пропуск"
         tools:layout="@layout/fragment_add_pass" />
+    <fragment
+        android:id="@+id/ordersListFragment"
+        android:name="com.example.officemanagerapp.ui.orders.OrdersListFragment"
+        android:label="Заказы"
+        tools:layout="@layout/fragment_orders_list" />
 
 </navigation>

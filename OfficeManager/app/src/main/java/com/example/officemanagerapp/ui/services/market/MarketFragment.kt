@@ -114,9 +114,9 @@ class MarketFragment : Fragment() {
             dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener {
                 val rating = dialogBinding.ratingBar.rating
                 val review = dialogBinding.editTextReview.text.toString()
-                val newOrder = order.copy(userRate = rating.toInt(), userReview = review)
+               /// val newOrder = order.copy(userRate = rating.toInt(), userReview = review)
 
-                viewModel.putMarketOrder(newOrder)
+             //   viewModel.putMarketOrder(newOrder)
 
                 viewModel.marketPutResponse.observe(viewLifecycleOwner) {
                     // set up progress bar

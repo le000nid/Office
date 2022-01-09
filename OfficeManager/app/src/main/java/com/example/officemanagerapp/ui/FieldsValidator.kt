@@ -37,6 +37,38 @@ object FieldsValidator {
         return true
     }
 
+    fun commentValidator(layout: TextInputLayout, value: String?): Boolean {
+        if (value.isNullOrEmpty()) {
+            setErrorMessage(layout, "Комментарий обязателен")
+            return false
+        }
+        return true
+    }
+
+    fun addressValidator(layout: TextInputLayout, value: String?): Boolean {
+        if (value.isNullOrEmpty()) {
+            setErrorMessage(layout, "Адрес обязателен")
+            return false
+        }
+        return true
+    }
+
+    fun floorValidator(layout: TextInputLayout, value: String?): Boolean {
+        if (value.isNullOrEmpty()) {
+            setErrorMessage(layout, "Этаж обязателен")
+            return false
+        }
+        return true
+    }
+
+    fun roomValidator(layout: TextInputLayout, value: String?): Boolean {
+        if (value.isNullOrEmpty()) {
+            setErrorMessage(layout, "Кабинет обязателен")
+            return false
+        }
+        return true
+    }
+
     fun clearError(view: TextInputLayout) { view.error = null }
 
     private fun setErrorMessage(view: TextInputLayout, errorMessage: String) {

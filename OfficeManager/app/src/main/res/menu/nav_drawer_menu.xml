@@ -25,8 +25,8 @@
         android:icon="@drawable/ic_home"/>
 
     <item
-        android:id="@+id/paymentFragment"
-        android:title="Оплата"
+        android:id="@+id/ordersListFragment"
+        android:title="Заказы"
         android:icon="@drawable/ic_home"/>
 
     <item

@@ -17,6 +17,7 @@ import com.example.officemanagerapp.databinding.FragmentAddPassBinding
 import com.example.officemanagerapp.network.Resource
 import com.example.officemanagerapp.ui.FieldsValidator
 import com.example.officemanagerapp.ui.RESULT_SUCCESS
+import com.example.officemanagerapp.util.PASS_POST_REQUEST
 import com.example.officemanagerapp.util.handleApiError
 import com.example.officemanagerapp.util.hide
 import com.example.officemanagerapp.util.show
@@ -48,10 +49,7 @@ class AddPassFragment : Fragment() {
             when (result) {
                 is Resource.Success -> {
                     binding.progressBar.hide()
-                    setFragmentResult(
-                        "post_request",
-                        bundleOf("post_result" to RESULT_SUCCESS)
-                    )
+                    setFragmentResult(PASS_POST_REQUEST, bundleOf("post_result" to RESULT_SUCCESS))
                     findNavController().popBackStack()
                 }
                 is Resource.Loading -> {

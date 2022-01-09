@@ -11,6 +11,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/allViews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="btn_add_photo, layoutName, layoutPhone, layoutComment, layoutAddress,
+            layoutFloor, layoutRoom, fabDone, textView, photos_rv"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
         <ImageView
             android:id="@+id/btn_add_photo"
             android:layout_width="wrap_content"
@@ -25,26 +44,106 @@
             app:tint="@color/secondaryColor" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_normal"
+            android:id="@+id/layoutName"
+            style="@style/textFieldRounded"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="@dimen/spacing_normal"
-            android:hint="Опишите детали заказа"
+            android:hint="@string/fullName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextOrder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:ems="10"
+                android:id="@+id/txInputName"
+                style="@style/textInputEdit"
+                android:inputType="text"
+                android:maxLength="50" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPhone"
+            style="@style/textFieldRounded"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:hint="@string/phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txInputPhone"
+                style="@style/textInputEdit"
+                android:inputType="phone"
+                android:maxLength="12" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutComment"
+            style="@style/textFieldRounded"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:hint="@string/comment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutPhone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txInputComment"
+                style="@style/textInputEdit"
                 android:inputType="text"
                 android:maxLength="250"
                 android:maxLines="5" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutAddress"
+            style="@style/textFieldRounded"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:hint="@string/address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutComment">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txInputAddress"
+                style="@style/textInputEdit"
+                android:inputType="text"
+                android:maxLength="20" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutFloor"
+            style="@style/textFieldRounded"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:hint="@string/floor"
+            app:layout_constraintEnd_toStartOf="@id/layoutRoom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutAddress">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txInputFloor"
+                style="@style/textInputEdit"
+                android:inputType="number"
+                android:maxLength="2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutRoom"
+            style="@style/textFieldRounded"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:hint="@string/room"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/layoutFloor"
+            app:layout_constraintTop_toBottomOf="@id/layoutAddress">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txInputRoom"
+                style="@style/textInputEdit"
+                android:inputType="number"
+                android:maxLength="6" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -56,7 +155,7 @@
             android:layout_marginTop="@dimen/spacing_large"
             android:text="Фотографии"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/layoutFloor" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/photos_rv"
@@ -70,7 +169,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:context=".ui.services.orderInfo.PlannedInfoFragment" />
+            tools:context=".ui.services.order_info.PlannedInfoFragment" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabDone"
