@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +17,7 @@ import com.example.officemanagerapp.util.formatDateToString
 import com.example.officemanagerapp.util.hide
 import com.example.officemanagerapp.util.show
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import kotlin.properties.Delegates.notNull
@@ -40,10 +42,17 @@ class PassFragment : Fragment() {
 
         initVariable()
         initClicks()
+        initListeners()
         fetchingData()
         setUpAdapter()
 
         return binding.root
+    }
+
+    private fun initListeners() {
+        setFragmentResultListener("post_request") { _, _ ->
+            Snackbar.make(requireView(), "Пропуск успешно выписан", Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     private fun initClicks() {

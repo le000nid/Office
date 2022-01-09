@@ -1,5 +1,6 @@
 package com.example.officemanagerapp.ui
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,6 +23,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+const val RESULT_SUCCESS = Activity.RESULT_FIRST_USER
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

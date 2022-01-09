@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -14,6 +16,7 @@ import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentAddPassBinding
 import com.example.officemanagerapp.network.Resource
 import com.example.officemanagerapp.ui.FieldsValidator
+import com.example.officemanagerapp.ui.RESULT_SUCCESS
 import com.example.officemanagerapp.util.handleApiError
 import com.example.officemanagerapp.util.hide
 import com.example.officemanagerapp.util.show
@@ -45,6 +48,10 @@ class AddPassFragment : Fragment() {
             when (result) {
                 is Resource.Success -> {
                     binding.progressBar.hide()
+                    setFragmentResult(
+                        "post_request",
+                        bundleOf("post_result" to RESULT_SUCCESS)
+                    )
                     findNavController().popBackStack()
                 }
                 is Resource.Loading -> {
