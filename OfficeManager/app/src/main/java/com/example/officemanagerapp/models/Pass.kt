@@ -4,10 +4,10 @@ import java.util.*
 
 data class Pass (
     val id: Int,
-    val dateStart: String,
-    val dateEnd: String,
-    val who: String,
-    val phone: String
+    val fullName: String?,
+    val phone: String?,
+    val dateStart: String?,
+    val dateEnd: String?
 ) {
     val fullDate: String = "$dateStart - $dateEnd"
 }

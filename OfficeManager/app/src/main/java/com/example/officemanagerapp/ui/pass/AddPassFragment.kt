@@ -8,10 +8,17 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentAddPassBinding
+import com.example.officemanagerapp.network.Resource
 import com.example.officemanagerapp.ui.FieldsValidator
+import com.example.officemanagerapp.util.handleApiError
+import com.example.officemanagerapp.util.hide
+import com.example.officemanagerapp.util.show
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AddPassFragment : Fragment() {
@@ -28,31 +35,51 @@ class AddPassFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
         initListeners()
+        observePostPass()
 
         return binding.root
+    }
+
+    private fun observePostPass() {
+        viewModel.passResponse.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Resource.Success -> {
+                    binding.progressBar.hide()
+                    findNavController().popBackStack()
+                }
+                is Resource.Loading -> {
+                    binding.allViews.visibility = View.GONE
+                    binding.progressBar.show()
+                }
+                is Resource.Failure -> {
+                    binding.allViews.visibility = View.VISIBLE
+                    binding.progressBar.hide()
+                }
+            }
+        }
     }
 
     private fun initListeners() {
 
         binding.txInputName.addTextChangedListener {
-            viewModel.txInputName.value = it.toString()
+            viewModel.fullName.value = it.toString()
         }
 
         binding.txInputPhone.addTextChangedListener {
-            viewModel.txInputPhone.value = it.toString()
+            viewModel.phone.value = it.toString()
         }
 
         binding.txInputDateStart.addTextChangedListener {
-            viewModel.txInputDateStart.value = it.toString()
+            viewModel.dateStart.value = it.toString()
         }
 
         binding.txInputDateEnd.addTextChangedListener {
-            viewModel.txInputDateEnd.value = it.toString()
+            viewModel.dateEnd.value = it.toString()
         }
 
         binding.fabDone.setOnClickListener {
             if (isFormValid()) {
-
+                viewModel.postPass()
             } else {
                 return@setOnClickListener
             }
@@ -68,10 +95,10 @@ class AddPassFragment : Fragment() {
         FieldsValidator.clearError(binding.layoutDateStart)
         FieldsValidator.clearError(binding.layoutDateEnd)
 
-        if (!FieldsValidator.nameValidator(binding.layoutName, viewModel.txInputName.value)) { validationFlag = false }
-        if (!FieldsValidator.phoneValidator(binding.layoutPhone, viewModel.txInputPhone.value)) { validationFlag = false }
-        if (!FieldsValidator.dateStartValidator(binding.layoutDateStart, viewModel.txInputDateStart.value)) { validationFlag = false }
-        if (!FieldsValidator.dateEndValidator(binding.layoutDateEnd, viewModel.txInputDateEnd.value)) { validationFlag = false }
+        if (!FieldsValidator.nameValidator(binding.layoutName, viewModel.fullName.value)) { validationFlag = false }
+        if (!FieldsValidator.phoneValidator(binding.layoutPhone, viewModel.phone.value)) { validationFlag = false }
+        if (!FieldsValidator.dateStartValidator(binding.layoutDateStart, viewModel.dateStart.value)) { validationFlag = false }
+        if (!FieldsValidator.dateEndValidator(binding.layoutDateEnd, viewModel.dateEnd.value)) { validationFlag = false }
 
         return validationFlag
     }
