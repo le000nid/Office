@@ -1,7 +1,6 @@
-package com.example.officemanagerapp.ui.services.planned.category
+package com.example.officemanagerapp.ui.services.planned
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil

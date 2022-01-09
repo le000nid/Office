@@ -9,7 +9,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.navigateUp
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.database.UserPreferences
 import com.example.officemanagerapp.databinding.ActivityMainBinding
@@ -32,8 +34,10 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var userPreferences: UserPreferences
     private lateinit var binding: ActivityMainBinding
-    private lateinit var navController: NavController
     private val viewModel by viewModels<ProfileViewModel>()
+
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,9 +55,18 @@ class MainActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.fragment)
 
         NavigationUI.setupWithNavController(navView, navController)
-        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.homeFragment,
+                R.id.passFragment,
+                R.id.plannedCategoriesFragment,
+                R.id.ordersListFragment),
+            drawerLayout
+        )
+
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
+
+        supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 
     fun performLogout() = lifecycleScope.launch {
@@ -77,8 +90,9 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController, drawerLayout)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
     private fun loginInFirebase(){
         val login = "Test2@gmail.com"
         val password = "Password"

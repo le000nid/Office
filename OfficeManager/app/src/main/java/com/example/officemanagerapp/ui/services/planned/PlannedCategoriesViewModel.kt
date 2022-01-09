@@ -1,4 +1,4 @@
-package com.example.officemanagerapp.ui.services.planned.category
+package com.example.officemanagerapp.ui.services.planned
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

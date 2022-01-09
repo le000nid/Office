@@ -1,4 +1,4 @@
-package com.example.officemanagerapp.ui.services.planned.category
+package com.example.officemanagerapp.ui.services.planned
 
 import android.os.Bundle
 import android.util.Log

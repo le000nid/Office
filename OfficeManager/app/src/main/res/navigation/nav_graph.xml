@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/plannedCategoriesFragment"
-        android:name="com.example.officemanagerapp.ui.services.planned.category.PlannedCategoriesFragment"
+        android:name="com.example.officemanagerapp.ui.services.planned.PlannedCategoriesFragment"
         android:label="Выберите категорию"
         tools:layout="@layout/fragment_planned_categories">
         <action
@@ -73,7 +73,7 @@
         <action
             android:id="@+id/action_orderInfoFragment_to_ordersListFragment"
             app:destination="@id/ordersListFragment"
-            app:popUpTo="@id/homeFragment" />
+            app:popUpTo="@id/ordersListFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderDetailedFragment"

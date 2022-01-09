@@ -11,7 +11,7 @@
 
         <variable
             name="click"
-            type="com.example.officemanagerapp.ui.services.planned.category.PlannedCategoriesAdapter.OnClickListener" />
+            type="com.example.officemanagerapp.ui.services.planned.PlannedCategoriesAdapter.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
