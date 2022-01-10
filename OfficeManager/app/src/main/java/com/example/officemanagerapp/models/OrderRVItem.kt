@@ -12,7 +12,7 @@ sealed class OrderRVItem {
     ): OrderRVItem()
 
     @Parcelize
-    data class pOrder(
+    data class Order(
         val type: String,
         val day: String,
         val timeStart: String,
@@ -20,37 +20,26 @@ sealed class OrderRVItem {
         val address: String,
         val floor: String,
         val room: String,
+        val company: Company?,
+        val price: Int?,
         val status: String,
         val rate: Float?,
-        val review: String?
-    ): OrderRVItem(), Parcelable {
-        val time: String
-            get() = "$timeStart - $timeEnd"
-    }
-
-    @Parcelize
-    data class mOrder(
-        val type: String,
-        val day: String,
-        val timeStart: String,
-        val timeEnd: String,
-        val address: String,
-        val floor: String,
-        val room: String,
-        val company: Company,
-        val price: Int,
-        val status: String,
-        val rate: Float?,
-        val review: String?
+        val review: String?,
+        val orderType: OrderType
     ): OrderRVItem(), Parcelable {
         val time: String
             get() = "$timeStart - $timeEnd"
     }
 }
 
+enum class OrderType {
+    MARKET, PLANNED
+}
+
+@Parcelize
 data class Company(
     val title: String,
     val drawableUrl: String,
     val rate: Float,
     val countRate: Int
-)
+): Parcelable

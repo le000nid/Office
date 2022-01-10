@@ -11,6 +11,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.officemanagerapp.R
+import com.example.officemanagerapp.models.OrderType
 import com.google.android.material.textfield.TextInputLayout
 
 /**
@@ -119,4 +120,12 @@ fun uploadImage(imgView: ImageView, imgUrl: String?) {
                     .error(R.drawable.ic_broken_image))
             .into(imgView)
     }
+}
+
+@BindingAdapter("orderTypeIcon")
+fun ImageView.setOrderTypeIcon(type: OrderType) {
+    setImageResource(when(type) {
+        OrderType.PLANNED -> R.drawable.ic_worker
+        OrderType.MARKET -> R.drawable.ic_market
+    })
 }

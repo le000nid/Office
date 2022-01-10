@@ -14,7 +14,7 @@ sealed class HomeViewHolder(binding: ViewBinding): RecyclerView.ViewHolder(bindi
 
     class TitleViewHolder(private val binding: ItemTitleBinding): HomeViewHolder(binding) {
         fun bind(title: HomeRVItem.Title) {
-            binding.title = title
+            binding.title.text = title.title
         }
     }
 

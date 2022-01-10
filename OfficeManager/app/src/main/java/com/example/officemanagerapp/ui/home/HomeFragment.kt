@@ -1,7 +1,6 @@
 package com.example.officemanagerapp.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +29,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container,false)
         binding.lifecycleOwner = viewLifecycleOwner
 
@@ -49,7 +48,7 @@ class HomeFragment : Fragment() {
                 is Resource.Loading -> binding.progressBar.show()
                 is Resource.Success -> {
                     binding.progressBar.hide()
-                    homeAdapter?.items = result.value
+                    homeAdapter.items = result.value
                 }
             }
         }

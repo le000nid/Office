@@ -4,108 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="orderClick"
-            type="com.example.officemanagerapp.ui.services.base.OrderClick" />
-
+            type="com.example.officemanagerapp.ui.orders.OrdersListAdapter.OnClickListener" />
         <variable
-            name="reviewClick"
-            type="com.example.officemanagerapp.ui.services.base.ReviewClick" />
+            name="order"
+            type="com.example.officemanagerapp.models.OrderRVItem.Order" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView
-        style="@style/cardWithBorder"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_normal"
-        android:layout_marginTop="@dimen/spacing_normal"
-        android:layout_marginEnd="@dimen/spacing_normal"
-        app:contentPaddingBottom="@dimen/spacing_big"
-        app:contentPaddingLeft="@dimen/spacing_normal"
-        app:contentPaddingRight="@dimen/spacing_normal"
-        app:contentPaddingTop="@dimen/spacing_big">
+        android:onClick="@{() -> orderClick.onClick(order)}">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <View
+            android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_order_date"
-                style="@style/TextAppearance.MaterialComponents.Caption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_little"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_order_title"
-                tools:text="01.02.22  |  14:00 - 16:00" />
+        <ImageView
+            android:id="@+id/circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:src="@drawable/circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_order_title"
-                style="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Название новости" />
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:orderTypeIcon="@{order.orderType}"
+            app:layout_constraintBottom_toBottomOf="@id/circle"
+            app:layout_constraintEnd_toEndOf="@id/circle"
+            app:layout_constraintStart_toStartOf="@id/circle"
+            app:layout_constraintTop_toTopOf="@id/circle" />
 
-            <TextView
-                android:id="@+id/tv_is_finished"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_little"
-                android:text="Завершен"
-                android:textColor="@color/secondaryColor"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_order_date" />
+        <TextView
+            android:id="@+id/title"
+            android:text="@{order.type}"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_little"
+            android:textColor="@color/primaryTextColor"
+            app:layout_constraintEnd_toStartOf="@id/status"
+            app:layout_constraintStart_toEndOf="@id/circle"
+            app:layout_constraintTop_toTopOf="@id/circle"
+            tools:text="Пропуск №1214" />
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="@dimen/spacing_normal"
-                android:background="@color/grayMiddle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_is_finished" />
+        <TextView
+            android:text="@{order.time}"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_little"
+            android:textColor="@color/transparentBlack"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/circle"
+            app:layout_constraintEnd_toStartOf="@id/status"
+            app:layout_constraintStart_toEndOf="@id/circle"
+            tools:text="27.11.12 - 28.11.12" />
 
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_navigate_next"
-                app:tint="@color/grayMiddle" />
-
-            <Button
-                android:id="@+id/btn_review"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_little"
-                android:backgroundTint="@color/secondaryColor"
-                android:text="Оставить отзыв"
-                android:textColor="@color/secondaryTextColor"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view2"
-                />
+        <TextView
+            android:id="@+id/status"
+            android:text="@{order.status}"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:textColor="@color/primaryTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/circle"
+            app:layout_constraintBottom_toBottomOf="@id/circle"
+            tools:text="Выполняется" />
 
 
-            <ImageView
-                android:id="@+id/orderRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_normal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view2"
-                />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

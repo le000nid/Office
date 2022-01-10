@@ -16,6 +16,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentOrderInfoBinding
+import com.example.officemanagerapp.models.OrderType
 import com.example.officemanagerapp.models.Photo
 import com.example.officemanagerapp.network.Resource
 import com.example.officemanagerapp.ui.FieldsValidator

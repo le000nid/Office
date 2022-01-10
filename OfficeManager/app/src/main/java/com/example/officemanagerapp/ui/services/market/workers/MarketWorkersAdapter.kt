@@ -33,8 +33,7 @@ class MarketWorkersAdapter(val callback: WorkerClick) : RecyclerView.Adapter<Mar
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            it.worker = workers[position]
-            it.workerClick = callback
+
         }
     }
 

@@ -2,6 +2,7 @@ package com.example.officemanagerapp.ui.services.order_info
 
 import androidx.lifecycle.*
 import com.example.officemanagerapp.models.Order
+import com.example.officemanagerapp.models.OrderType
 import com.example.officemanagerapp.models.Photo
 import com.example.officemanagerapp.network.Resource
 import com.example.officemanagerapp.repository.OrdersRepository
@@ -47,9 +48,5 @@ class OrderInfoViewModel @Inject constructor(
     val room: MutableLiveData<String> = MutableLiveData()
     val categoryId: MutableLiveData<Int> = MutableLiveData()
     val companyId: MutableLiveData<Int> = MutableLiveData()
-}
-
-enum class OrderType {
-    PLANNED, MARKET
 }
 
