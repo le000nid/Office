@@ -37,11 +37,6 @@
         android:label="Профиль"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/workersFragment"
-        android:name="com.example.officemanagerapp.ui.workers.WorkersFragment"
-        android:label="Контроль времени"
-        tools:layout="@layout/fragment_workers" />
-    <fragment
         android:id="@+id/newsDetailedFragment"
         android:name="com.example.officemanagerapp.ui.home.NewsDetailedFragment"
         android:label="Новость подробно"
@@ -88,44 +83,7 @@
         android:id="@+id/marketCategoriesFragment"
         android:name="com.example.officemanagerapp.ui.services.market.addmarketorder.MarketCategoriesFragment"
         android:label="Выберите категорию"
-        tools:layout="@layout/fragment_market_categories" >
-        <action
-            android:id="@+id/action_marketCategoriesFragment_to_marketWorkersFragment"
-            app:destination="@id/marketWorkersFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/marketWorkersFragment"
-        android:name="com.example.officemanagerapp.ui.services.market.workers.MarketWorkersFragment"
-        android:label="{appBarTitle}"
-        tools:layout="@layout/fragment_market_workers">
-        <argument
-            android:name="appBarTitle"
-            app:argType="string" />
-        <argument
-            android:name="category"
-            app:argType="com.example.officemanagerapp.models.Category" />
-        <action
-            android:id="@+id/action_marketWorkersFragment_to_workerInfoFragment"
-            app:destination="@id/workerInfoFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/workerInfoFragment"
-        android:name="com.example.officemanagerapp.ui.services.market.workerInfo.WorkerInfoFragment"
-        android:label="{appBarTitle}"
-        tools:layout="@layout/fragment_worker_info">
-        <argument
-            android:name="appBarTitle"
-            app:argType="string" />
-        <argument
-            android:name="workerPreview"
-            app:argType="com.example.officemanagerapp.models.WorkerPreview" />
-        <action
-            android:id="@+id/action_workerInfoFragment_to_orderInfoFragment"
-            app:destination="@id/orderInfoFragment" />
-        <argument
-            android:name="categoryId"
-            app:argType="integer" />
-    </fragment>
+        tools:layout="@layout/fragment_market_categories" />
     <fragment
         android:id="@+id/passFragment"
         android:name="com.example.officemanagerapp.ui.pass.PassFragment"

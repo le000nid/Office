@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="worker"
-            type="com.example.officemanagerapp.models.Worker" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,7 +40,6 @@
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:layout_marginTop="@dimen/spacing_large"
-                    app:imageFromURL="@{worker.photo}"
                     android:src="@drawable/im_worker"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +51,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_normal"
-                    android:text="@{worker.fullName}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/workerIcon"
@@ -69,7 +64,6 @@
                     app:layout_constraintEnd_toEndOf="@+id/txWorkerName"
                     app:layout_constraintStart_toStartOf="@+id/txWorkerName"
                     app:layout_constraintTop_toBottomOf="@+id/txWorkerName"
-                    app:setRating="@{worker.rate}"
                     tools:src="@drawable/ic_rate_0" />
 
                 <com.google.android.material.button.MaterialButton
@@ -136,7 +130,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_tiny"
-                    android:text="@{worker.info}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txTitleAbout"
@@ -159,7 +152,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_tiny"
-                    android:text="@{worker.experience}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txTitleExp"

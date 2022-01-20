@@ -15,7 +15,7 @@
         android:icon="@drawable/ic_home"/>
 
     <item
-        android:id="@+id/market"
+        android:id="@+id/marketCategoriesFragment"
         android:title="Маркет услуг"
         android:icon="@drawable/ic_home"/>
 
