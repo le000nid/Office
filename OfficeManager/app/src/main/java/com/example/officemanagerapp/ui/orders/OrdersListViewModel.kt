@@ -36,7 +36,7 @@ class OrdersListViewModel @Inject constructor(
 
         val pOrders = pOrdersDeferred.await()
         val mOrders = mOrdersDeferred.await()*/
-        val company = Company("Twitter", "https://www.google.com/search?q=twitter&sxsrf=AOaemvIGf6QaASmf6onUHSVvbCDw9x1lBg:1641741876972&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjixo6L_aT1AhXhmIsKHf6RBEkQ_AUoAnoECAIQBA&biw=1535&bih=762&dpr=1.25#imgrc=y_6Z3dmjEp2YHM", 4.25f, 24)
+        val company = CompanyShort("Twitter", "https://www.google.com/search?q=twitter&sxsrf=AOaemvIGf6QaASmf6onUHSVvbCDw9x1lBg:1641741876972&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjixo6L_aT1AhXhmIsKHf6RBEkQ_AUoAnoECAIQBA&biw=1535&bih=762&dpr=1.25#imgrc=y_6Z3dmjEp2YHM", 4.25f, 24)
         val mOrders = Resource.Success(listOf(
             NetworkMOrder("Уборка офиса (only rate)", "24 февраля 2021", "14:00", "15:00", "Ул. Ленина 24/5", "4", "123",  company, 1000, ORDER_PAID, 4f, null),
             NetworkMOrder("Уборка офиса (both)", "24 февраля 2021", "14:00", "15:00", "Ул. Ленина 24/5", "4", "123",  company, 1000, ORDER_ACTIVE, 4f ,"Обратился за помощью к мастеру, все было велеиколепно, мастер справился прекрасно")

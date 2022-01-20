@@ -83,7 +83,11 @@
         android:id="@+id/marketCategoriesFragment"
         android:name="com.example.officemanagerapp.ui.services.market.addmarketorder.MarketCategoriesFragment"
         android:label="Выберите категорию"
-        tools:layout="@layout/fragment_market_categories" />
+        tools:layout="@layout/fragment_market_categories" >
+        <action
+            android:id="@+id/action_marketCategoriesFragment_to_companiesListFragment"
+            app:destination="@id/companiesListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/passFragment"
         android:name="com.example.officemanagerapp.ui.pass.PassFragment"
@@ -123,6 +127,18 @@
         <argument
             android:name="order"
             app:argType="com.example.officemanagerapp.models.OrderRVItem$Order" />
+    </fragment>
+    <fragment
+        android:id="@+id/companiesListFragment"
+        android:name="com.example.officemanagerapp.ui.services.market.companies_list.CompaniesListFragment"
+        android:label="{appBarTitle}"
+        tools:layout="@layout/fragment_companies_list">
+        <argument
+            android:name="appBarTitle"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="com.example.officemanagerapp.models.Category" />
     </fragment>
 
 </navigation>

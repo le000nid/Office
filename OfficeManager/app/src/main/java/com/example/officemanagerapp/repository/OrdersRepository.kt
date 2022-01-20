@@ -42,14 +42,6 @@ class OrdersRepository @Inject constructor(
         api.postMarketOrder(order)
     }
 
-    suspend fun getWorkerCalendarById(workerId: Int) = safeApiCall {
-        api.getWorkerCalendarById(workerId)
-    }
-
-    suspend fun getWorkerCalendar(subcategoryId: Int) = safeApiCall {
-        api.getWorkerCalendar(subcategoryId)
-    }
-
     suspend fun getOrderById(orderId: Int) = safeApiCall {
         api.getOrderById(orderId)
     }

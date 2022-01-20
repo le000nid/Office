@@ -2,7 +2,6 @@ package com.example.officemanagerapp.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import java.util.*
 
 
 sealed class OrderRVItem {
@@ -20,7 +19,7 @@ sealed class OrderRVItem {
         val address: String,
         val floor: String,
         val room: String,
-        val company: Company?,
+        val companyShort: CompanyShort?,
         val price: Int?,
         val status: String,
         val rate: Float?,
@@ -37,7 +36,7 @@ enum class OrderType {
 }
 
 @Parcelize
-data class Company(
+data class CompanyShort(
     val title: String,
     val drawableUrl: String,
     val rate: Float,

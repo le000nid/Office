@@ -270,7 +270,7 @@
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_marginBottom="@dimen/spacing_little"
-            android:text="@{order.company.title}"
+            android:text="@{order.companyShort.title}"
             app:layout_constraintEnd_toEndOf="@id/shapeCompany"
             app:layout_constraintStart_toEndOf="@id/imgCompany"
             app:layout_constraintTop_toTopOf="@id/imgCompany"

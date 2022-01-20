@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="workerReview"
-            type="com.example.officemanagerapp.models.WorkerReview" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +17,6 @@
             android:id="@+id/workerIcon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            app:imageFromURL="@{workerReview.picture}"
             android:src="@drawable/im_worker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,7 +27,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_normal"
-            android:text="@{workerReview.fullName}"
             app:layout_constraintStart_toEndOf="@+id/workerIcon"
             app:layout_constraintTop_toTopOf="@+id/workerIcon"
             tools:text="Петров Николай Васильевич" />
@@ -43,7 +38,6 @@
             android:layout_marginTop="@dimen/spacing_tiny"
             app:layout_constraintStart_toStartOf="@+id/txWorkerName"
             app:layout_constraintTop_toBottomOf="@+id/txWorkerName"
-            app:setRating="@{workerReview.rate}"
             tools:src="@drawable/ic_rate_0" />
 
         <TextView
@@ -52,7 +46,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_little"
-            android:text="@{workerReview.comment}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/workerRate"

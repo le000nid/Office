@@ -22,8 +22,6 @@ interface OrderApi {
     @GET("/planned-categories")
     suspend fun getPlannedCategories(): List<Category>
 
-    @GET("/calendar")
-    suspend fun getWorkerCalendar(@Query("subcategory") subcategoryId: Int): List<WorkerMonth>
 
 
     // ---------- Market orders ----------
@@ -42,17 +40,12 @@ interface OrderApi {
     @GET("/market-categories")
     suspend fun getMarketCategories(): List<SectionCategories>
 
-    @GET("/market-workers")
-    suspend fun getMarketPreviewWorkers(@Query("???") categoryId: Int): List<WorkerPreview>
-
-    @GET("/market-workers")
-    suspend fun getMarketWorker(@Query("???") workerId: Int): Worker
-
-    @GET("/calendar")
-    suspend fun getWorkerCalendarById(@Query("worker") workerId: Int): List<WorkerMonth>
 
 
 
     @GET("/order")
     suspend fun getOrderById(orderId: Int): OrderRVItem.Order
+
+    @GET("/company")
+    suspend fun getCompanies(id: Int): List<Company>
 }

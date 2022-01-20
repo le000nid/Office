@@ -39,7 +39,8 @@ class MarketCategoriesAdapter(val parentFragment: Fragment) : RecyclerView.Adapt
             it.sectionTitle.text = sectionedCategories[position].title
 
             val sectionAdapter = MarketCategoriesSectionedAdapter(MarketCategoryItemClick { item ->
-
+                val action = MarketCategoriesFragmentDirections.actionMarketCategoriesFragmentToCompaniesListFragment(item.title, item)
+                parentFragment.findNavController().navigate(action)
             })
 
             it.root.findViewById<RecyclerView>(R.id.sectionRV).apply {
