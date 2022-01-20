@@ -50,4 +50,9 @@ interface OrderApi {
 
     @GET("/calendar")
     suspend fun getWorkerCalendarById(@Query("worker") workerId: Int): List<WorkerMonth>
+
+
+
+    @GET("/order")
+    suspend fun getOrderById(orderId: Int): OrderRVItem.Order
 }

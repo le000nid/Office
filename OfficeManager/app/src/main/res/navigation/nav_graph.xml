@@ -76,18 +76,6 @@
             app:popUpTo="@id/ordersListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/orderDetailedFragment"
-        android:name="com.example.officemanagerapp.ui.services.base.OrderDetailedFragment"
-        android:label="{orderTitle}"
-        tools:layout="@layout/fragment_order_detailed">
-        <argument
-            android:name="orderTitle"
-            app:argType="string" />
-        <argument
-            android:name="order"
-            app:argType="com.example.officemanagerapp.models.Order" />
-    </fragment>
-    <fragment
         android:id="@+id/singleChatFragment"
         android:name="com.example.officemanagerapp.ui.chat.singlechat.SingleChatFragment"
         android:label="fragment_single_chat"
@@ -161,6 +149,22 @@
         android:id="@+id/ordersListFragment"
         android:name="com.example.officemanagerapp.ui.orders.OrdersListFragment"
         android:label="Заказы"
-        tools:layout="@layout/fragment_orders_list" />
+        tools:layout="@layout/fragment_orders_list" >
+        <action
+            android:id="@+id/action_ordersListFragment_to_ordersDetailedFragment"
+            app:destination="@id/ordersDetailedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ordersDetailedFragment"
+        android:name="com.example.officemanagerapp.ui.orders.OrdersDetailedFragment"
+        android:label="{appBarTitle}"
+        tools:layout="@layout/fragment_orders_detailed" >
+        <argument
+            android:name="appBarTitle"
+            app:argType="string" />
+        <argument
+            android:name="order"
+            app:argType="com.example.officemanagerapp.models.OrderRVItem$Order" />
+    </fragment>
 
 </navigation>

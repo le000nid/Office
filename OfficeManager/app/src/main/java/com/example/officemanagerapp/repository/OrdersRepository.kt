@@ -1,6 +1,7 @@
 package com.example.officemanagerapp.repository
 
 import com.example.officemanagerapp.models.Order
+import com.example.officemanagerapp.models.OrderRVItem
 import com.example.officemanagerapp.network.OrderApi
 import com.example.officemanagerapp.network.SafeApiCall
 import com.example.officemanagerapp.responses.OrderUpdate
@@ -47,5 +48,9 @@ class OrdersRepository @Inject constructor(
 
     suspend fun getWorkerCalendar(subcategoryId: Int) = safeApiCall {
         api.getWorkerCalendar(subcategoryId)
+    }
+
+    suspend fun getOrderById(orderId: Int) = safeApiCall {
+        api.getOrderById(orderId)
     }
 }

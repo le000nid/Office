@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.orders.OrdersDetailedFragment">
+
+    <data>
+
+        <variable
+            name="order"
+            type="com.example.officemanagerapp.models.OrderRVItem.Order" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGrey">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/allViews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="shapeOrderType, titleOrderType, textOrderType, shapeDay, titleDay, textDay, shapeTime, titleTime, textTime, shapeAddress, titleAddress, textAddress, shapeCompany, imgCompany, imgStar, rateCompany, countRateCompany, titleCompany, textCompany, shapePrice, titlePrice, textPrice, shapeStatus, titleStatus, textStatus, shapeRate, titleRate, imgReviewRate, shapeReview, titleReview, textReview"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/reviewViews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="shapeRate, titleRate, imgReviewRate, shapeReview, titleReview, textReview"/>
+
+        <ImageView
+            android:id="@+id/shapeOrderType"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/fieldHeight"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_big"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:src="@drawable/field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/titleOrderType"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:text="@string/orderType"
+            app:layout_constraintStart_toStartOf="@id/shapeOrderType"
+            app:layout_constraintTop_toTopOf="@id/shapeOrderType" />
+
+        <TextView
+            android:id="@+id/textOrderType"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_little"
+            android:text="@{order.type}"
+            app:layout_constraintBottom_toBottomOf="@id/shapeOrderType"
+            app:layout_constraintEnd_toEndOf="@id/shapeOrderType"
+            app:layout_constraintStart_toStartOf="@id/shapeOrderType"
+            app:layout_constraintTop_toBottomOf="@id/titleOrderType"
+            tools:text="Тип заказа" />
+
+        <ImageView
+            android:id="@+id/shapeDay"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/fieldHeight"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_little"
+            android:src="@drawable/field"
+            app:layout_constraintEnd_toStartOf="@id/shapeTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shapeOrderType" />
+
+        <TextView
+            android:id="@+id/titleDay"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:text="@string/day"
+            app:layout_constraintStart_toStartOf="@id/shapeDay"
+            app:layout_constraintTop_toTopOf="@id/shapeDay" />
+
+        <TextView
+            android:id="@+id/textDay"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_little"
+            android:text="@{order.day}"
+            app:layout_constraintBottom_toBottomOf="@id/shapeDay"
+            app:layout_constraintEnd_toEndOf="@id/shapeDay"
+            app:layout_constraintStart_toStartOf="@id/shapeDay"
+            app:layout_constraintTop_toBottomOf="@id/titleDay"
+            tools:text="24 февраля 2021" />
+
+        <ImageView
+            android:id="@+id/shapeTime"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/fieldHeight"
+            android:layout_marginStart="@dimen/spacing_little"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:src="@drawable/field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/shapeDay"
+            app:layout_constraintTop_toBottomOf="@id/shapeOrderType" />
+
+        <TextView
+            android:id="@+id/titleTime"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:text="@string/time"
+            app:layout_constraintStart_toStartOf="@id/shapeTime"
+            app:layout_constraintTop_toTopOf="@id/shapeTime" />
+
+        <TextView
+            android:id="@+id/textTime"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_little"
+            android:text="@{order.time}"
+            app:layout_constraintBottom_toBottomOf="@id/shapeTime"
+            app:layout_constraintEnd_toEndOf="@id/shapeTime"
+            app:layout_constraintStart_toStartOf="@id/shapeTime"
+            app:layout_constraintTop_toBottomOf="@id/titleTime"
+            tools:text="14:00 - 16:00" />
+
+        <ImageView
+            android:id="@+id/shapeAddress"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/fieldHeight"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:src="@drawable/field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shapeDay" />
+
+        <TextView
+            android:id="@+id/titleAddress"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:text="@string/address"
+            app:layout_constraintStart_toStartOf="@id/shapeAddress"
+            app:layout_constraintTop_toTopOf="@id/shapeAddress" />
+
+        <TextView
+            android:id="@+id/textAddress"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_little"
+            android:text="@{order.address}"
+            app:layout_constraintBottom_toBottomOf="@id/shapeAddress"
+            app:layout_constraintEnd_toEndOf="@id/shapeAddress"
+            app:layout_constraintStart_toStartOf="@id/shapeAddress"
+            app:layout_constraintTop_toBottomOf="@id/titleAddress"
+            tools:text="Ул. Ленина 24/5" />
+
+        <ImageView
+            android:id="@+id/shapeCompany"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:src="@drawable/field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shapeAddress" />
+
+        <ImageView
+            android:id="@+id/imgCompany"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            app:layout_constraintBottom_toBottomOf="@id/shapeCompany"
+            app:layout_constraintStart_toStartOf="@id/shapeCompany"
+            app:layout_constraintTop_toBottomOf="@id/titleCompany"
+            tools:src="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imgStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star"
+            app:layout_constraintBottom_toBottomOf="@id/rateCompany"
+            app:layout_constraintStart_toStartOf="@id/textCompany"
+            app:layout_constraintTop_toTopOf="@id/rateCompany" />
+
+        <TextView
+            android:id="@+id/rateCompany"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_little"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/primaryBlack"
+            app:layout_constraintStart_toEndOf="@id/imgStar"
+            app:layout_constraintTop_toBottomOf="@id/textCompany"
+            tools:text="4.25" />
+
+        <TextView
+            android:id="@+id/countRateCompany"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_little"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toEndOf="@id/rateCompany"
+            app:layout_constraintTop_toBottomOf="@id/textCompany"
+            tools:text="(25)" />
+
+        <TextView
+            android:id="@+id/titleCompany"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:text="@string/company"
+            app:layout_constraintStart_toStartOf="@id/shapeCompany"
+            app:layout_constraintTop_toTopOf="@id/shapeCompany" />
+
+        <TextView
+            android:id="@+id/textCompany"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_little"
+            android:text="@{order.company.title}"
+            app:layout_constraintEnd_toEndOf="@id/shapeCompany"
+            app:layout_constraintStart_toEndOf="@id/imgCompany"
+            app:layout_constraintTop_toTopOf="@id/imgCompany"
+            tools:text="Twitter" />
+
+        <ImageView
+            android:id="@+id/shapePrice"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/fieldHeight"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:src="@drawable/field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shapeCompany" />
+
+        <TextView
+            android:id="@+id/titlePrice"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:text="@string/price"
+            app:layout_constraintStart_toStartOf="@id/shapePrice"
+            app:layout_constraintTop_toTopOf="@id/shapePrice" />
+
+        <TextView
+            android:id="@+id/textPrice"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_little"
+            app:layout_constraintBottom_toBottomOf="@id/shapePrice"
+            app:layout_constraintEnd_toEndOf="@id/shapePrice"
+            app:layout_constraintStart_toStartOf="@id/shapePrice"
+            app:layout_constraintTop_toBottomOf="@id/titlePrice"
+            tools:text="1000р" />
+
+        <ImageView
+            android:id="@+id/shapeStatus"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/fieldHeight"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:src="@drawable/field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shapePrice" />
+
+        <TextView
+            android:id="@+id/titleStatus"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:text="@string/status"
+            app:layout_constraintStart_toStartOf="@id/shapeStatus"
+            app:layout_constraintTop_toTopOf="@id/shapeStatus" />
+
+        <TextView
+            android:id="@+id/textStatus"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_little"
+            android:text="@{order.status}"
+            app:layout_constraintBottom_toBottomOf="@id/shapeStatus"
+            app:layout_constraintEnd_toEndOf="@id/shapeStatus"
+            app:layout_constraintStart_toStartOf="@id/shapeStatus"
+            app:layout_constraintTop_toBottomOf="@id/titleStatus"
+            tools:text="Выполняется" />
+
+        <ImageView
+            android:id="@+id/shapeRate"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/fieldHeight"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:src="@drawable/field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shapeStatus" />
+
+        <TextView
+            android:id="@+id/titleRate"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:text="Ваша оценка"
+            app:layout_constraintStart_toStartOf="@id/shapeRate"
+            app:layout_constraintTop_toTopOf="@id/shapeRate" />
+
+
+        <ImageView
+            android:id="@+id/imgReviewRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            app:layout_constraintStart_toStartOf="@id/shapeRate"
+            app:layout_constraintTop_toBottomOf="@+id/titleRate"
+            android:src="@drawable/ic_rate_0" />
+
+        <ImageView
+            android:id="@+id/shapeReview"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/fieldHeight"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:src="@drawable/field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shapeRate" />
+
+        <TextView
+            android:id="@+id/titleReview"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:text="Отзыв"
+            app:layout_constraintStart_toStartOf="@id/shapeReview"
+            app:layout_constraintTop_toTopOf="@id/shapeReview" />
+
+        <TextView
+            android:id="@+id/textReview"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_little"
+            android:text="@{order.review}"
+            app:layout_constraintEnd_toEndOf="@id/shapeReview"
+            app:layout_constraintStart_toStartOf="@id/shapeReview"
+            app:layout_constraintTop_toBottomOf="@id/titleReview"
+            tools:text="Отзыв" />
+
+        <Button
+            android:id="@+id/btnPay"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_little"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:text="Оплатить"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnReview"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnReview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_little"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:text="Оставить Отзыв"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnPay" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
