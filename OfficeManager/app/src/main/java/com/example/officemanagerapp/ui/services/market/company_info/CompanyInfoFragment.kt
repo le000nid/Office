@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentCompanyInfoBinding
 import com.example.officemanagerapp.models.Company
+import com.example.officemanagerapp.models.Order
 
 class CompanyInfoFragment: Fragment() {
 
@@ -32,6 +34,12 @@ class CompanyInfoFragment: Fragment() {
         binding.company = company
 
         setUpAdapter()
+
+        binding.btnOffer.setOnClickListener {
+            val order = Order(companyId = company.id, categoryId = args.categoryId)
+            val action = CompanyInfoFragmentDirections.actionCompanyInfoFragmentToOrderInfoFragment(company.title, order)
+            findNavController().navigate(action)
+        }
 
         return binding.root
     }

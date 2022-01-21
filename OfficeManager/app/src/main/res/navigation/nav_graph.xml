@@ -154,6 +154,12 @@
         <argument
             android:name="company"
             app:argType="com.example.officemanagerapp.models.Company" />
+        <action
+            android:id="@+id/action_companyInfoFragment_to_orderInfoFragment"
+            app:destination="@id/orderInfoFragment" />
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

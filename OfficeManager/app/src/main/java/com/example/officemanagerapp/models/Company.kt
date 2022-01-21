@@ -6,6 +6,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Company(
     val title: String,
+    val id: Int,
     val drawableUrl: String,
     val rate: Float,
     val countRate: Int,

@@ -8,10 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentCompaniesListBinding
 import com.example.officemanagerapp.network.Resource
+import com.example.officemanagerapp.ui.services.market.company_info.CompanyInfoFragmentArgs
 import com.example.officemanagerapp.util.hide
 import com.example.officemanagerapp.util.show
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +24,7 @@ class CompaniesListFragment : Fragment() {
     private val viewModel: CompaniesListViewModel by viewModels()
     private lateinit var companiesListAdapter: CompaniesListAdapter
     private lateinit var binding: FragmentCompaniesListBinding
+    private val args by navArgs<CompaniesListFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,7 +42,7 @@ class CompaniesListFragment : Fragment() {
 
     private fun setUpAdapter() {
         companiesListAdapter = CompaniesListAdapter(CompaniesListAdapter.OnClickListener {
-            val action = CompaniesListFragmentDirections.actionCompaniesListFragmentToCompanyInfoFragment(it.title, it)
+            val action = CompaniesListFragmentDirections.actionCompaniesListFragmentToCompanyInfoFragment(it.title, it, args.category.categoryId)
             findNavController().navigate(action)
         })
 
