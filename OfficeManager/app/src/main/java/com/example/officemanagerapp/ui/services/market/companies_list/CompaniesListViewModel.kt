@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.officemanagerapp.models.Company
+import com.example.officemanagerapp.models.Review
 import com.example.officemanagerapp.network.Resource
 import com.example.officemanagerapp.repository.ServicesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -28,9 +29,15 @@ class CompaniesListViewModel @Inject constructor(
     private fun getCompaniesList() = viewModelScope.launch {
         _companiesListLiveData.value = Resource.Loading
 
+        val reviewList = listOf(
+            Review("Алексей Петрович", "", 5.0f, "12.12.21","Все огонь"),
+            Review("Алексей Петрович", "", 5.0f, "12.12.21","Все огонь"),
+            Review("Алексей Петрович", "", 5.0f, "12.12.21","Все огонь"),
+        )
+
         val testListCompanies = listOf(
-            Company("Компания 1", "", 4.24f, 12, "Инфорация о компании", "от 2000р",null),
-            Company("Компания 2", "", 3.54f, 2, "Инфорация о компании", "от 5000р",null),
+            Company("Компания 1", "", 4.24f, 12, "Инфорация о компании", "от 2000р",reviewList),
+            Company("Компания 2", "", 3.54f, 2, "Инфорация о компании", "от 5000р",reviewList),
             Company("Компания 3", "", 2.70f, 16, "Инфорация о компании", "от 1000р", null),
             Company("Компания 4", "", 4.54f, 121, "Инфорация о компании", "от 2500р", null),
         )

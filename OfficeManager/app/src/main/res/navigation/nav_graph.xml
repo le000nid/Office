@@ -139,6 +139,21 @@
         <argument
             android:name="category"
             app:argType="com.example.officemanagerapp.models.Category" />
+        <action
+            android:id="@+id/action_companiesListFragment_to_companyInfoFragment"
+            app:destination="@id/companyInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/companyInfoFragment"
+        android:name="com.example.officemanagerapp.ui.services.market.company_info.CompanyInfoFragment"
+        android:label="{appBarTitle}"
+        tools:layout="@layout/fragment_company_info" >
+        <argument
+            android:name="appBarTitle"
+            app:argType="string" />
+        <argument
+            android:name="company"
+            app:argType="com.example.officemanagerapp.models.Company" />
     </fragment>
 
 </navigation>

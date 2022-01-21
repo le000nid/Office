@@ -4,13 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="company"
+            type="com.example.officemanagerapp.models.Company" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.services.market.workerInfo.WorkerInfoFragment">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -25,15 +37,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_normal"
                 android:layout_marginEnd="@dimen/spacing_normal">
-
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/workerIcon"
@@ -54,7 +57,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/workerIcon"
-                    tools:text="Петров Никтолай" />
+                    android:text="@{company.title}"
+                    tools:text="Название компании" />
 
                 <ImageView
                     android:id="@+id/workerRate"
@@ -71,7 +75,7 @@
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_little"
                     android:layout_marginEnd="@dimen/spacing_little"
                     android:text="Звонок"
                     android:textColor="@color/secondaryColor"
@@ -94,7 +98,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_little"
-                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_little"
                     android:text="Чат"
                     android:textColor="@color/secondaryColor"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +110,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_little"
-                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_little"
                     android:text="Предложить заказ"
                     android:textColor="@color/secondaryTextColor"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -115,12 +119,11 @@
 
                 <TextView
                     android:id="@+id/txTitleAbout"
-                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_large"
-                    android:text="О себе"
-                    android:textColor="@color/secondaryColor"
+                    android:text="Об Организации"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnOffer" />
 
@@ -132,70 +135,28 @@
                     android:layout_marginTop="@dimen/spacing_tiny"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    android:text="@{company.info}"
                     app:layout_constraintTop_toBottomOf="@+id/txTitleAbout"
-                    tools:text="Информация об исполнителе" />
-
-                <TextView
-                    android:id="@+id/txTitleExp"
-                    style="@style/TextAppearance.MaterialComponents.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_normal"
-                    android:text="Опыт работы"
-                    android:textColor="@color/secondaryColor"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txAbout" />
-
-                <TextView
-                    android:id="@+id/txExp"
-                    style="@style/TextAppearance.MaterialComponents.Body1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_tiny"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txTitleExp"
-                    tools:text="Информация об исполнителе" />
+                    tools:text="Информация об организации" />
 
                 <TextView
                     android:id="@+id/txTitleServices"
-                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:text="Услуги специалиста"
-                    android:textColor="@color/secondaryColor"
+                    android:layout_marginTop="@dimen/spacing_big"
+                    android:text="Отзывы"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txExp" />
+                    app:layout_constraintTop_toBottomOf="@+id/txAbout" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/workerServicesRV"
+                    android:id="@+id/reviewsRV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_little"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txTitleServices" />
-
-                <TextView
-                    android:id="@+id/txTitleReviews"
-                    style="@style/TextAppearance.MaterialComponents.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:text="Отзывы"
-                    android:textColor="@color/secondaryColor"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/workerServicesRV" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/workerReviewsRV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_little"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txTitleReviews" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

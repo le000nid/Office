@@ -49,6 +49,7 @@
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_add_pass.xml" value="0.4" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_chat.xml" value="0.26222826086956524" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_companies_list.xml" value="0.275" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_company_info.xml" value="0.24230072463768115" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_market.xml" value="0.1046875" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_market_categories.xml" value="0.13645833333333332" />
@@ -82,7 +83,7 @@
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_planned_order.xml" value="0.16510416666666666" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_preview_worker.xml" value="0.16510416666666666" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_push_notification.xml" value="0.23052536231884058" />
-        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_review.xml" value="0.1" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_review.xml" value="0.264" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_title.xml" value="0.23052536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_worker_review.xml" value="0.275" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_worker_service.xml" value="0.23052536231884058" />

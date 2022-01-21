@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.officemanagerapp.R
 import com.example.officemanagerapp.databinding.FragmentCompaniesListBinding
@@ -38,7 +39,8 @@ class CompaniesListFragment : Fragment() {
 
     private fun setUpAdapter() {
         companiesListAdapter = CompaniesListAdapter(CompaniesListAdapter.OnClickListener {
-            // todo(made action onClick)
+            val action = CompaniesListFragmentDirections.actionCompaniesListFragmentToCompanyInfoFragment(it.title, it)
+            findNavController().navigate(action)
         })
 
         binding.companiesRV.apply {
