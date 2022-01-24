@@ -61,6 +61,15 @@ object AppModule {
         return remoteDataSource.buildApi(PassApi::class.java, context)
     }
 
+    @Singleton
+    @Provides
+    fun provideTenantApi(
+        remoteDataSource: RemoteDataSource,
+        @ApplicationContext context: Context
+    ): TenantsApi {
+        return remoteDataSource.buildApi(TenantsApi::class.java, context)
+    }
+
     @ApplicationScope
     @Provides
     @Singleton

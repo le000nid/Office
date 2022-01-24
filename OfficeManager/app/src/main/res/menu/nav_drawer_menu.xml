@@ -40,7 +40,7 @@
         android:icon="@drawable/ic_home"/>
 
     <item
-        android:id="@+id/tenants"
+        android:id="@+id/tenantsFragment"
         android:title="Арендаторы"
         android:icon="@drawable/ic_home"/>
 

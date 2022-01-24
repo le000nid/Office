@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="tenant"
+            type="com.example.officemanagerapp.models.Tenant" />
+
+        <variable
+            name="tenantClick"
+            type="com.example.officemanagerapp.ui.tenants.TenantsAdapter.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> tenantClick.onClick(tenant)}">
+
+        <ImageView
+            android:id="@+id/imgCompany"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textCompany"
+            style="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:text="@{tenant.title}"
+            app:layout_constraintStart_toEndOf="@id/imgCompany"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imgCompany"
+            tools:text="Twitter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

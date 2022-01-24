@@ -161,5 +161,10 @@
             android:name="categoryId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/tenantsFragment"
+        android:name="com.example.officemanagerapp.ui.tenants.TenantsFragment"
+        android:label="Арендаторы"
+        tools:layout="@layout/fragment_tenants_list" />
 
 </navigation>

@@ -66,6 +66,7 @@
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_planned_categories.xml" value="0.23052536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_planned_subcategory.xml" value="0.26222826086956524" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_profile.xml" value="0.26222826086956524" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_tenants_list.xml" value="0.1" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_time_control.xml" value="0.23052536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_worker_info.xml" value="0.13677536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/fragment_workers.xml" value="0.16510416666666666" />
@@ -84,6 +85,7 @@
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_preview_worker.xml" value="0.16510416666666666" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_push_notification.xml" value="0.23052536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_review.xml" value="0.264" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_tenant.xml" value="0.6" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_title.xml" value="0.23052536231884058" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_worker_review.xml" value="0.275" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/item_worker_service.xml" value="0.23052536231884058" />
