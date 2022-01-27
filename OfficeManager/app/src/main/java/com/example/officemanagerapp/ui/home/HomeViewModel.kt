@@ -28,29 +28,43 @@ class HomeViewModel @Inject constructor(
 
     fun getHomeListItems() = viewModelScope.launch {
         _homeListItemsLiveData.postValue(Resource.Loading)
+
         val newsDeferred = async { repository.getNews() }
         val alertsDeferred = async { repository.getAlerts() }
 
         val news = newsDeferred.await()
         val alerts = alertsDeferred.await()
 
+        val homeCards = listOf(
+            HomeRVItem.HomeCard("Выписать пропуск", ""),
+            HomeRVItem.HomeCard("Заказать мастера", ""),
+            HomeRVItem.HomeCard("Маркет услуг", ""),
+            HomeRVItem.HomeCard("Возникла проблема", ""),
+        )
+
         val homeItemsList = mutableListOf<HomeRVItem>()
-        // TODO(add other cases)
-        if (news is Resource.Success && alerts is Resource.Success) {
+
+        if (news is Resource.Success && alerts is Resource.Success && news.value.isNotEmpty() && alerts.value.isNotEmpty()) {
             homeItemsList.addAll(alerts.value)
 
             homeItemsList.add(HomeRVItem.Title("Основное"))
-
-            homeItemsList.add(HomeRVItem.HomeCard("Выписать пропуск", ""))
-            homeItemsList.add(HomeRVItem.HomeCard("Заказать мастера", ""))
-            homeItemsList.add(HomeRVItem.HomeCard("Маркет услуг", ""))
-            homeItemsList.add(HomeRVItem.HomeCard("Возникла проблема", ""))
+            homeItemsList.addAll(homeCards)
 
             homeItemsList.add(HomeRVItem.Title("Обратите внимание"))
-
             homeItemsList.addAll(news.value)
 
             _homeListItemsLiveData.postValue(Resource.Success(homeItemsList))
+        } else if (news is Resource.Success && news.value.isNotEmpty()) {
+            homeItemsList.add(HomeRVItem.Title("Основное"))
+            homeItemsList.addAll(homeCards)
+
+            homeItemsList.add(HomeRVItem.Title("Обратите внимание"))
+            homeItemsList.addAll(news.value)
+        } else if (alerts is Resource.Success && alerts.value.isNotEmpty()) {
+            homeItemsList.addAll(alerts.value)
+
+            homeItemsList.add(HomeRVItem.Title("Основное"))
+            homeItemsList.addAll(homeCards)
         } else {
             Resource.Failure(false, null, null)
         }
