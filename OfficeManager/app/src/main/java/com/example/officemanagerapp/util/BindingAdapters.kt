@@ -14,50 +14,6 @@ import com.example.officemanagerapp.R
 import com.example.officemanagerapp.models.OrderType
 import com.google.android.material.textfield.TextInputLayout
 
-/**
- * Binding adapter used to hide the spinner once data is available
- */
-@BindingAdapter("goneIfNotNull")
-fun goneIfNotNull(view: View, it: Any?) {
-    view.visibility = if (it != null) View.GONE else View.VISIBLE
-}
-
-@BindingAdapter("goneRv1","goneRv2")
-fun goneIfRVNotNull(view: View, it1: Any?, it2: Any?) {
-    view.visibility = if (it1 != null || it2 != null) View.GONE else View.VISIBLE
-}
-
-@BindingAdapter("visibleRv1","visibleRv2")
-fun visibleIfRVNotNull(view: View, it1: Any?, it2: Any?) {
-    view.visibility = if (it1 != null || it2 != null) View.VISIBLE else View.GONE
-}
-
-@BindingAdapter("goneIfNull")
-fun goneIfNull(view: View, it: Any?) {
-    view.visibility = if (it == null) View.GONE else View.VISIBLE
-}
-
-
-@BindingAdapter("visibleIfFinished")
-fun visibleIfFinished(view: View, it: Int) {
-    view.visibility = if (it == 1) View.VISIBLE else View.GONE
-}
-
-@BindingAdapter("visibleIfReviewed")
-fun visibleIfReviewed(view: View, rate: Int) {
-    view.visibility = if (rate != 0) View.VISIBLE else View.GONE
-}
-
-@BindingAdapter("goneIfRate0")
-fun goneIfRate0(view: View, it: Int) {
-    view.visibility = if (it == 0) View.GONE else View.VISIBLE
-}
-
-@BindingAdapter("goneIfRateNot0", "state")
-fun goneIfRateNot0(view: View, rate: Int, state: Int) {
-    view.visibility = if (rate != 0 || state == 0) View.GONE else View.VISIBLE
-}
-
 @BindingAdapter("setRating")
 fun setRating(view: ImageView, rate: Double) {
     when(rate.toInt()) {

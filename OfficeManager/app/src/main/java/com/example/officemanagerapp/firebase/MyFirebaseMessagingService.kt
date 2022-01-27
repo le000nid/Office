@@ -119,9 +119,3 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         }
     }
 }
-
-
-data class MyNotification(
-    val title: String?,
-    val message: String?
-)
