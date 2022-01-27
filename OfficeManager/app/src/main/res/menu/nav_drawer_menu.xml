@@ -7,45 +7,45 @@
     <item
         android:id="@+id/passFragment"
         android:title="Выписать пропуск"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_pass"/>
 
     <item
         android:id="@+id/plannedCategoriesFragment"
         android:title="Заказать мастера"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_worker"/>
 
     <item
         android:id="@+id/marketCategoriesFragment"
         android:title="Маркет услуг"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_market"/>
 
     <item
         android:id="@+id/inbox"
         android:title="Заявки"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_list"/>
 
     <item
         android:id="@+id/ordersListFragment"
         android:title="Заказы"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_payment"/>
 
     <item
         android:id="@+id/chatFragment"
         android:title="Чаты"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_chat"/>
 
     <item
         android:id="@+id/timeControlFragment"
         android:title="Контроль времени"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_time"/>
 
     <item
         android:id="@+id/tenantsFragment"
         android:title="Арендаторы"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_tenants"/>
 
     <item
         android:id="@+id/survey"
         android:title="Анектирование"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_survey"/>
 </menu>

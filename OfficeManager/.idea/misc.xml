@@ -42,9 +42,17 @@
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/bg_recived_messag.xml" value="0.2911458333333333" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/circle.xml" value="0.27685185185185185" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/field.xml" value="0.18125" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_chat.xml" value="0.2911458333333333" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_hourglass.xml" value="0.2911458333333333" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_list.xml" value="0.2911458333333333" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_market.xml" value="0.2911458333333333" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_pass.xml" value="0.2911458333333333" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_payment.xml" value="0.2911458333333333" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_rate_0.xml" value="0.2911458333333333" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_services.xml" value="0.11388888888888889" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_survey.xml" value="0.2911458333333333" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_tenants.xml" value="0.2911458333333333" />
+        <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_time.xml" value="0.2911458333333333" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/drawable/ic_worker.xml" value="0.11388888888888889" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/activity_auth.xml" value="0.2653985507246377" />
         <entry key="..\:/Office/Office/OfficeManager/app/src/main/res/layout/activity_initial.xml" value="0.2653985507246377" />
@@ -205,6 +213,9 @@
         <entry key="..\:/Users/le000nid/Documents/GitHub/SpasDomApp/SpasDomUserAppKotlin/app/src/main/res/layout/item_planned_order.xml" value="0.33" />
       </map>
     </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/user-pass-svgrepo-com 1.svg" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
