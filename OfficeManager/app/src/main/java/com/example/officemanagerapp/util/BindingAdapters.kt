@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -66,7 +67,12 @@ fun ImageView.setCategoryImage(item: Int) {
 
 @BindingAdapter("imageFromURL")
 fun uploadImage(imgView: ImageView, imgUrl: String?) {
-    imgUrl?.let {
+    if (imgUrl.isNullOrEmpty()) {
+        imgView.setImageDrawable(
+            ContextCompat.getDrawable(imgView.context,
+            R.drawable.ic_broken_image
+        ))
+    } else {
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
         Glide.with(imgView.context)
             .load(imgUri)

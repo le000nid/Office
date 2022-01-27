@@ -18,14 +18,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_little"
         android:onClick="@{() -> cardClick.onClick(homeCard)}">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card"
             style="@style/card_style_main"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:layout_marginEnd="@dimen/spacing_little"
             app:layout_constraintDimensionRatio="H,1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

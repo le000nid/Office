@@ -16,6 +16,8 @@
 
     <com.google.android.material.card.MaterialCardView
         style="@style/cardWithBorder"
+        android:layout_marginEnd="@dimen/spacing_little"
+        android:layout_marginBottom="@dimen/spacing_normal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{() -> newsItemClick.onClick(newsItem)}">

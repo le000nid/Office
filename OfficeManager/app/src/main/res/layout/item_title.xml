@@ -8,6 +8,9 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="@dimen/spacing_big"
+        android:layout_marginBottom="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/spacing_little"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -16,7 +19,6 @@
             style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_normal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Заголовок" />
